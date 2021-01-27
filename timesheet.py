@@ -6,10 +6,10 @@ from openpyxl.comments import Comment
 from datetime import time, date, datetime, timedelta
 import datetime as dt
 
-month = datetime.now().month
+month = datetime.now().strftime('%b')
 
 
-IN_FILE = f'2020-{month}-21.csv'
+IN_FILE = f'2020-12-21.csv'
 export_day = IN_FILE[0:10]
 SAMPLE_FILE = 'WorkingdayTemplate.xlsx'
 OUT_FILE = 'Workingday.xlsx'
@@ -118,6 +118,11 @@ out_wb = load_workbook(SAMPLE_FILE)
 out_ws = out_wb.active
 k = 0  # column
 start_day = datetime.strptime(first_day, '%Y-%m-%d')
+time_now = f'{month}_{datetime.now().year}'
+out_ws.cell(row=2, column=1).value = f'TIME ATTENDANCE RECORD {time_now}'
+from_day = export_day.replace('-', '/')
+end_day = str(end)[0:10].replace('-', '/')
+out_ws.cell(row=4, column=1).value = f'WORKING DAY {from_day} - {end_day}'
 while start_day <= end:
     column = 6 + k
     out_ws.cell(row=6, column=column, value=start_day.strftime("%a"))
