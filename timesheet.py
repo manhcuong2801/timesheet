@@ -150,12 +150,12 @@ while start_day <= end:
             time = day.strftime("%H:%M:%S")
             if emp_id in IGNORE_EMP_ID:
                 status = STATUS_OK
-            elif day.weekday() > 5:
+            elif start_day.weekday() > 5:
                 status = STATUS_OK
             elif day.strftime("%d") != start_day.strftime("%d"):
                 continue
             elif late_time_real > 0 and late_time > 0:
-                status = late_time / 8
+                status = late_time * 0.125
                 cell.comment = Comment(f"TDT STAFF:\n đi muộn lúc: {time}", "Tool")
             else:
                 status = 0
