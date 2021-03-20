@@ -8,8 +8,9 @@ import datetime as dt
 
 month = datetime.now().strftime('%b')
 
-
-IN_FILE = f'2020-12-21.csv'
+month_num = datetime.now().month
+year = datetime.now().year
+IN_FILE = f'{year}-0{month_num - 1}-21.csv' if month_num < 10 else f'{year}-{month_num-1}-21.csv'
 export_day = IN_FILE[0:10]
 SAMPLE_FILE = 'WorkingdayTemplate.xlsx'
 OUT_FILE = 'Workingday.xlsx'
