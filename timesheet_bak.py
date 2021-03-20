@@ -5,20 +5,20 @@ import pandas
 from datetime import time, date, datetime, timedelta
 
 
-SAMPLE_FILE = 'WorkingdayTemplate.xlsx'
-OUT_FILE = 'Workingday.xlsx'
-IN_FILE = 'BangChamCong.csv'
+SAMPLE_FILE = "WorkingdayTemplate.xlsx"
+OUT_FILE = "Workingday.xlsx"
+IN_FILE = "BangChamCong.csv"
 
-STATUS_OK = ''
+STATUS_OK = ""
 STATUS_DAY_OFF = 1
 
 IGNORE_EMP_ID = [
-    'ECO0001',  # CEO
-    'ECO0003',  # A. Trung Bom
-    'ECO0012',  # Ma Nhu
-    'ECO0038',  # Chi Chung
-    'ECO0089',  # Vuong
-    'ECO0345',  # Co Sam
+    "ECO0001",  # CEO
+    "ECO0003",  # A. Trung Bom
+    "ECO0012",  # Ma Nhu
+    "ECO0038",  # Chi Chung
+    "ECO0089",  # Vuong
+    "ECO0345",  # Co Sam
 ]
 
 
@@ -26,29 +26,29 @@ def time2str(value):
     if isinstance(value, str):
         return value
     if isinstance(value, time):
-        return value.strftime('%d')
-    return ''
+        return value.strftime("%d")
+    return ""
 
 
 def str2date(value):
     if isinstance(value, (date, datetime)):
         return value
-    return datetime.strptime(value, '%Y/%m/%d')
+    return datetime.strptime(value, "%Y/%m/%d")
 
 
 def str2datetime(value):
     if isinstance(value, (date, datetime)):
         return value
-    return datetime.strptime(value, '%Y/%m/%d %H:%M:%S')
+    return datetime.strptime(value, "%Y/%m/%d %H:%M:%S")
 
 
-print(f'Start loading check time from {IN_FILE}')
+print(f"Start loading check time from {IN_FILE}")
 
-first_day = time2str('2020-06-21')
-last_day = time2str('2020-07-21')
+first_day = time2str("2020-06-21")
+last_day = time2str("2020-07-21")
 
-start = datetime.strptime(first_day, '%Y-%m-%d')
-end = datetime.strptime(last_day, '%Y-%m-%d')
+start = datetime.strptime(first_day, "%Y-%m-%d")
+end = datetime.strptime(last_day, "%Y-%m-%d")
 step = timedelta(days=1)
 
 data = {}
@@ -56,7 +56,7 @@ data = {}
 working_days = []
 
 
-print(f'Start loading template from {SAMPLE_FILE}')
+print(f"Start loading template from {SAMPLE_FILE}")
 out_wb = load_workbook(SAMPLE_FILE)
 out_ws = out_wb.active
 
@@ -70,13 +70,17 @@ while start <= end:
     start += step
 print(working_days)
 
-reader = pandas.read_csv('BangChamCong.csv', index_col='Employee/Employee code', parse_dates=['Check In', 'Check Out'])
+reader = pandas.read_csv(
+    "BangChamCong.csv",
+    index_col="Employee/Employee code",
+    parse_dates=["Check In", "Check Out"],
+)
 for emp in reader:
     emp_id = emp[0]
     emp_name = emp[1]
     check_in = emp[2]
     check_out = emp[3]
-    late_time = emp[4].replace(',', '.')
+    late_time = emp[4].replace(",", ".")
 
     key = (emp_id, emp_name)
     if key not in data:
@@ -88,7 +92,7 @@ for emp in reader:
     print(data[key])
 
 i = 0  # row
-status = ''
+status = ""
 for emp_id, emp_name in sorted(data):
     row = 8 + i
     out_ws.cell(row=row, column=1).value = i + 1
@@ -100,32 +104,29 @@ for emp_id, emp_name in sorted(data):
     for day, late_time, check_in_time in check_time:
         column = 6 + k
         cell = out_ws.cell(row=row, column=column)
-        time = check_in_time.strftime('%H:%M:%S')
+        time = check_in_time.strftime("%H:%M:%S")
         if emp_id in IGNORE_EMP_ID:
             status = STATUS_OK
             continue
         elif day.weekday() > 4:
             status = STATUS_OK
-        elif day.strftime('%d') != start.strftime('%d'):
+        elif day.strftime("%d") != start.strftime("%d"):
             continue
         elif float(late_time) > 0:
             status = float(late_time) / 8
-            cell.comment = Comment(f'TDT STAFF:\n đi muộn lúc: {time}', 'Tool')
+            cell.comment = Comment(f"TDT STAFF:\n đi muộn lúc: {time}", "Tool")
         else:
             status = 0
         cell.value = status
         wk += 1
     sum_cell = out_ws.cell(row=row, column=37)
-    sum_cell.value = f'=SUM(F{row}:AJ{row})'
+    sum_cell.value = f"=SUM(F{row}:AJ{row})"
 
     i += 1
 
-print(f'Saving working day to {OUT_FILE}')
+print(f"Saving working day to {OUT_FILE}")
 out_wb.save(OUT_FILE)
-print('DONE.')
-
-
-
+print("DONE.")
 
 
 #     i = 0  # row
@@ -159,6 +160,3 @@ print('DONE.')
 #         i += 1
 #
 #
-
-
-
