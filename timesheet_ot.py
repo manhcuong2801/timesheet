@@ -2,7 +2,6 @@ import calendar
 import csv
 
 from openpyxl import load_workbook
-from openpyxl.comments import Comment
 from datetime import time, date, datetime, timedelta
 import datetime as dt
 
@@ -13,7 +12,7 @@ year = datetime.now().year
 # IN_FILE = 'BCC.csv'
 export_day = '2021-03-21'
 IN_FILE = '2021-03-21.csv'
-SAMPLE_FILE = "ot-template.xlsx"
+SAMPLE_FILE = "OT PLAN.xlsx"
 OUT_FILE = "ot-day.xlsx"
 STATUS_OK = ""
 STATUS_DAY_OFF = 1
@@ -26,6 +25,27 @@ IGNORE_EMP_ID = [
     "ECO0089",  # Vuong
     "ECO0345",  # Co Sam
 ]
+
+
+def compute_actual_working_hours(checkin_time: datetime, work_hours: float, time_late: float):
+    real_work_hours = 0
+    day_of_week_str = f'{str(checkin_time)[0:10]}'
+    end_time_str = f'{str(checkin_time)[0:10]} 17:30:00'
+    after_work_time_str = f'{str(checkin_time)[0:10]} 18:30:00'
+    check_out_str = f'{str(check_out)}'
+    day_of_week = datetime.strptime(day_of_week_str, '%Y-%m-%d')
+    time_checkout = datetime.strptime(check_out_str, datetimeFormat)
+    end_time = str2datetime(end_time_str)
+    after_work_time = str2datetime(after_work_time_str)
+    if day_of_week.weekday() <= 4:
+        real_work_hours = float(work_hours) - 9 - float(time_late)
+    else:
+        if time_checkout < end_time:
+            real_work_hours = float(work_hours) - 8 - float(time_late)
+        elif time_checkout.hour - after_work_time.hour > 0:
+            real_work_hours = float(work_hours) - float(time_late)
+
+    return real_work_hours if real_work_hours > 0 else ''
 
 
 def time2str(value):
@@ -125,6 +145,7 @@ status_checkin = ''
 status_checkout = ''
 status_late = ''
 status_work = ''
+status_actual = ''
 
 
 for emp_id, emp_name in sorted(data):
@@ -155,11 +176,13 @@ for emp_id, emp_name in sorted(data):
             status_checkout = check_out
             status_late = late_time
             status_work = working_hours
+            status_actual = compute_actual_working_hours(check_in, working_hours, late_time)
 
         cell_checkin = out_ws.cell(row=row_name, column=column, value=status_checkin)
         cell_checkout = out_ws.cell(row=row_name, column=column + 1, value=status_checkout)
         cell_late = out_ws.cell(row=row_name, column=column + 2, value=status_late)
         cell_work = out_ws.cell(row=row_name, column=column + 3, value=status_work)
+        cell_actual = out_ws.cell(row=row_name, column=column + 4, value=status_actual)
         zz += 9
         start_day += step
     row_name += 7
