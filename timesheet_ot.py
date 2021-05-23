@@ -10,9 +10,9 @@ month = datetime.now().strftime("%b")
 month_num = datetime.now().month
 year = datetime.now().year
 # IN_FILE = 'BCC.csv'
-export_day = '2021-03-21'
-IN_FILE = '2021-03-21.csv'
-SAMPLE_FILE = "OT PLAN.xlsx"
+export_day = '2021-04-21'
+IN_FILE = '2021-04-21.csv'
+SAMPLE_FILE = "TDTs-OT-PLAN-05_2021.xlsx"
 OUT_FILE = "ot-day.xlsx"
 STATUS_OK = ""
 STATUS_DAY_OFF = 1
@@ -105,7 +105,7 @@ k = 0  # column
 row = 3
 
 data_col = set()
-while row < 160:
+while row < 290:
     a = out_ws.cell(row=row, column=1).value
     if a:
         data_col.add(a)
@@ -140,7 +140,7 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
 
 time_now = f"{month}_{datetime.now().year}"
 
-step_row = 6
+step_row = 8
 status_checkin = ''
 status_checkout = ''
 status_late = ''
@@ -161,7 +161,7 @@ for emp_id, emp_name in sorted(data):
         column_date_str = out_ws.cell(row=1, column=column - 1).value
         column_date = datetime.strptime(column_date_str, '%d/%m/%Y')
         while name != emp_name:
-            row_name += 7
+            row_name += 8
             name = out_ws.cell(row=row_name, column=1).value
 
         while column_date < datetime.strptime(str(day)[0:10], '%Y-%m-%d'):
@@ -185,7 +185,7 @@ for emp_id, emp_name in sorted(data):
         cell_actual = out_ws.cell(row=row_name, column=column + 4, value=status_actual)
         zz += 9
         start_day += step
-    row_name += 7
+    row_name += 8
 
 
 print(f"Saving working day to {OUT_FILE}")
