@@ -10,9 +10,9 @@ month = datetime.now().strftime("%b")
 month_num = datetime.now().month
 year = datetime.now().year
 # IN_FILE = 'BCC.csv'
-export_day = '2021-04-21'
-IN_FILE = '2021-04-21.csv'
-SAMPLE_FILE = "TDTs-OT-PLAN-05_2021.xlsx"
+export_day = '2021-05-21'
+IN_FILE = 'hr.attendance-2.csv'
+SAMPLE_FILE = "TDT's OT PLAN 06_2021.xlsx"
 OUT_FILE = "ot-day.xlsx"
 STATUS_OK = ""
 STATUS_DAY_OFF = 1
@@ -27,6 +27,10 @@ IGNORE_EMP_ID = [
 ]
 
 
+def merge_cells_wd(ws, cell, step_row):
+    return ws.merge_cells(range_string=f'{cell.coordinate}:{cell.column_letter}{cell.row + step_row}')
+
+
 def compute_actual_working_hours(checkin_time: datetime, work_hours: float, time_late: float):
     real_work_hours = 0
     day_of_week_str = f'{str(checkin_time)[0:10]}'
@@ -37,6 +41,8 @@ def compute_actual_working_hours(checkin_time: datetime, work_hours: float, time
     time_checkout = datetime.strptime(check_out_str, datetimeFormat)
     end_time = str2datetime(end_time_str)
     after_work_time = str2datetime(after_work_time_str)
+    if check_out_str == '':
+        return ''
     if day_of_week.weekday() <= 4:
         real_work_hours = float(work_hours) - 9 - float(time_late)
     else:
@@ -140,7 +146,7 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
 
 time_now = f"{month}_{datetime.now().year}"
 
-step_row = 8
+step_row = 5
 status_checkin = ''
 status_checkout = ''
 status_late = ''
@@ -161,7 +167,7 @@ for emp_id, emp_name in sorted(data):
         column_date_str = out_ws.cell(row=1, column=column - 1).value
         column_date = datetime.strptime(column_date_str, '%d/%m/%Y')
         while name != emp_name:
-            row_name += 8
+            row_name += step_row
             name = out_ws.cell(row=row_name, column=1).value
 
         while column_date < datetime.strptime(str(day)[0:10], '%Y-%m-%d'):
@@ -183,9 +189,14 @@ for emp_id, emp_name in sorted(data):
         cell_late = out_ws.cell(row=row_name, column=column + 2, value=status_late)
         cell_work = out_ws.cell(row=row_name, column=column + 3, value=status_work)
         cell_actual = out_ws.cell(row=row_name, column=column + 4, value=status_actual)
+        out_ws.merge_cells(range_string=f'{cell_checkin.coordinate}:{cell_checkin.column_letter}{cell_checkin.row + step_row}')
+        merge_cells_wd(out_ws, cell_checkout, step_row)
+        # merge_cells_wd(out_ws, cell_late, step_row)
+        # merge_cells_wd(out_ws, cell_work, step_row)
+        # merge_cells_wd(out_ws, cell_actual, step_row)
         zz += 9
         start_day += step
-    row_name += 8
+    row_name += step_row
 
 
 print(f"Saving working day to {OUT_FILE}")
