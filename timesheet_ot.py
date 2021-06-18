@@ -10,9 +10,9 @@ month = datetime.now().strftime("%b")
 month_num = datetime.now().month
 year = datetime.now().year
 # IN_FILE = 'BCC.csv'
-export_day = '2021-04-21'
-IN_FILE = '2021-04-21.csv'
-SAMPLE_FILE = "TDTs-OT-PLAN-05_2021.xlsx"
+export_day = '2021-05-21'
+IN_FILE = 'hr.attendance.csv'
+SAMPLE_FILE = "TDT's OT PLAN 06_2021.xlsx"
 OUT_FILE = "ot-day.xlsx"
 STATUS_OK = ""
 STATUS_DAY_OFF = 1
@@ -113,7 +113,7 @@ while row < 290:
 
 
 while start <= end:
-    column = 3 + k
+    column = 4 + k
     out_ws.cell(row=1, column=column, value=start.strftime('%d/%m/%Y'))
     working_days.append(start)
     k += 9
@@ -126,7 +126,7 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         emp_id = row[0].upper()
         emp_name = row[1].upper()
         key = (emp_id, emp_name)
-        if emp_name not in data_col:
+        if emp_id not in data_col:
             continue
         if key not in data:
             data[key] = []
@@ -140,7 +140,7 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
 
 time_now = f"{month}_{datetime.now().year}"
 
-step_row = 8
+step_row = 5
 status_checkin = ''
 status_checkout = ''
 status_late = ''
@@ -153,16 +153,16 @@ for emp_id, emp_name in sorted(data):
     check_time = data[(emp_id, emp_name)]
     if not check_time:
         continue
-    row_name = 3
+    row_id = 3
     start_day = datetime.strptime(first_day, "%Y-%m-%d")
     for day, check_in, check_out, late_time, working_hours in check_time:
-        column = 4 + zz
-        name = out_ws.cell(row=row_name, column=1).value
+        column = 5 + zz
+        id_emp = out_ws.cell(row=row_id, column=1).value
         column_date_str = out_ws.cell(row=1, column=column - 1).value
         column_date = datetime.strptime(column_date_str, '%d/%m/%Y')
-        while name != emp_name:
-            row_name += 8
-            name = out_ws.cell(row=row_name, column=1).value
+        while id_emp != emp_id:
+            row_id += step_row
+            id_emp = out_ws.cell(row=row_id, column=1).value
 
         while column_date < datetime.strptime(str(day)[0:10], '%Y-%m-%d'):
             column_date += step
@@ -178,14 +178,15 @@ for emp_id, emp_name in sorted(data):
             status_work = working_hours
             status_actual = compute_actual_working_hours(check_in, working_hours, late_time)
 
-        cell_checkin = out_ws.cell(row=row_name, column=column, value=status_checkin)
-        cell_checkout = out_ws.cell(row=row_name, column=column + 1, value=status_checkout)
-        cell_late = out_ws.cell(row=row_name, column=column + 2, value=status_late)
-        cell_work = out_ws.cell(row=row_name, column=column + 3, value=status_work)
-        cell_actual = out_ws.cell(row=row_name, column=column + 4, value=status_actual)
+        cell_checkin = out_ws.cell(row=row_id, column=column, value=status_checkin)
+        cell_checkout = out_ws.cell(row=row_id, column=column + 1, value=status_checkout)
+        cell_late = out_ws.cell(row=row_id, column=column + 2, value=status_late)
+        cell_work = out_ws.cell(row=row_id, column=column + 3, value=status_work)
+        cell_actual = out_ws.cell(row=row_id, column=column + 4, value=status_actual)
         zz += 9
         start_day += step
-    row_name += 8
+        print(f'{day},  {emp_name}, {row_id}')
+    row_id += step_row
 
 
 print(f"Saving working day to {OUT_FILE}")
