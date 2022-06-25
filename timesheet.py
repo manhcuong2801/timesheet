@@ -1,11 +1,21 @@
 import calendar
 import csv
+import logging
 
 from openpyxl import load_workbook
 from openpyxl.comments import Comment
+from openpyxl.styles import PatternFill
 from datetime import time, date, datetime, timedelta
-import datetime as dt
 
+
+_logger = logging.getLogger(__name__)
+
+LOG_FORMAT = "%(asctime)s %(levelname)s %(name)s %(message)s"
+
+info_log_file = "info.log"
+logging.basicConfig(filename=info_log_file, format=LOG_FORMAT, level=logging.DEBUG)
+
+NO_CHECKOUT = "NO CHECKOUT"
 month = datetime.now().strftime("%b")
 
 month_num = datetime.now().month
@@ -13,11 +23,16 @@ year = datetime.now().year
 IN_FILE = (
     f"{year}-0{month_num - 1}-21.csv"
     if month_num < 10
-    else f"{year}-{month_num-1}-21.csv"
+    else f"{year}-{month_num - 1}-21.csv"
 )
 export_day = IN_FILE[0:10]
+
 SAMPLE_FILE = "WorkingdayTemplate.xlsx"
-OUT_FILE = "Workingday.xlsx"
+OUT_FILE = (
+    f"Workingday-{year}-0{month_num}-21.xlsx"
+    if month_num < 10
+    else f"{year}-{month_num}-21.xlsx"
+)
 
 STATUS_OK = ""
 STATUS_DAY_OFF = 1
@@ -29,6 +44,7 @@ IGNORE_EMP_ID = [
     "ECO0038",  # Chi Chung
     "ECO0089",  # Vuong
     "ECO0345",  # Co Sam
+    "ECO",  # May Cham Cong ?? :D ??
 ]
 
 
@@ -67,6 +83,11 @@ def get_late_time(time: float) -> float:
     return late_time
 
 
+# def append_off_day(list_days: set, list_wking_days: list):
+#     for wking_day in list_wking_days:
+#         list_template_working_days = wking_day, 8, 1, datetime.min, ""
+#
+
 datetimeFormat = "%Y-%m-%d %H:%M:%S"
 first_day = time2str(f"{export_day}")
 start = datetime.strptime(first_day, "%Y-%m-%d")
@@ -79,7 +100,6 @@ step = timedelta(days=1)
 data = {}
 
 working_days = []
-
 
 print(f"Start loading template from {SAMPLE_FILE}")
 out_wb = load_workbook(SAMPLE_FILE)
@@ -102,28 +122,34 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         emp_name = row[1].upper()
         key = (emp_id, emp_name)
         if key not in data:
-            data[key] = []
+            data[key] = set()
         day = str2datetime(row[2])
+        checkout_time = str2datetime(row[3]) if row[3] else NO_CHECKOUT
         right_time_str = f"{str(row[2])[0:10]} 08:30:00"
         noon_time_str = f"{str(row[2])[0:10]} 13:00:00"
-        late_time_raw = dt.datetime.strptime(
-            str(row[2])[0:19], datetimeFormat
-        ) - dt.datetime.strptime(right_time_str, datetimeFormat)
-        if late_time_raw.seconds > 16200:
-            late_time_raw = (
-                dt.datetime.strptime(str(row[2])[0:19], datetimeFormat)
-                - dt.datetime.strptime(noon_time_str, datetimeFormat)
-                + timedelta(hours=4)
-            )
-        late_time_real = (late_time_raw.seconds / 3600) + late_time_raw.days * 3600
+        right_co_time_str = f"{str(row[2])[0:10]} 17:30:00"
+        right_co_time = str2datetime(right_co_time_str)
+        late_time_raw = 0
+        late_time_real = 0
+
+        if str2datetime(row[2]) > str2datetime(right_time_str):
+            late_time_raw = str2datetime(row[2]) - str2datetime(right_time_str)
+
+        if checkout_time != NO_CHECKOUT and checkout_time < str2datetime(
+                right_co_time_str
+        ):
+            late_time_real += (right_co_time - checkout_time).seconds / 3600
+        if late_time_raw:
+            late_time_real = late_time_raw.seconds / 3600
+            if late_time_raw.seconds > 16200:
+                late_time_raw = (
+                        str2datetime(row[2])
+                        - str2datetime(right_time_str)
+                        + timedelta(hours=4)
+                ).seconds
         late_time = get_late_time(late_time_real)
-        data[key].append((day, late_time, late_time_real))
-        print(data[key])
+        data[key].add((day, late_time, late_time_real, checkout_time, row[2][0:10]))
 
-
-print(f"Start loading template from {SAMPLE_FILE}")
-out_wb = load_workbook(SAMPLE_FILE)
-out_ws = out_wb.active
 k = 0  # column
 start_day = datetime.strptime(first_day, "%Y-%m-%d")
 time_now = f"{month}_{datetime.now().year}"
@@ -144,24 +170,45 @@ while start_day <= end:
         out_ws.cell(row=row, column=3).value = emp_name
 
         check_time = data[(emp_id, emp_name)]
-        for day, late_time, late_time_real in check_time:
+        for day, late_time, late_time_real, checkout_time, timestr in check_time:
             # Column start from 6 because there 2 hidden columns
+            comments = []
+            comment_tool = ""
             cell = out_ws.cell(row=row, column=column)
             time = day.strftime("%H:%M:%S")
+            status = STATUS_OK
+
+            co_time_str = f"{str(day)[0:10]} 17:30:00"
+            co_time = str2datetime(co_time_str)
+            comments.append(f"Checkout lúc: {checkout_time}")
             if emp_id in IGNORE_EMP_ID:
                 status = STATUS_OK
+                comments = []
             elif start_day.weekday() > 5:
                 status = STATUS_OK
-            elif day.strftime("%d") != start_day.strftime("%d"):
+            elif day.strftime("%m%d") != start_day.strftime("%m%d"):
+                comments = []
                 continue
             elif late_time_real > 0 and late_time > 0:
                 status = late_time * 0.125
-                cell.comment = Comment(f"TDT STAFF:\n đi muộn lúc: {time}", "Tool")
+                comments.insert(0, f"Checkin lúc: {time}")
+            elif checkout_time == NO_CHECKOUT:
+                status = 1.0
+                cell.fill = PatternFill(patternType='solid', fgColor='ffffff')
             else:
-                status = 0
-            if status != "":
+                status = STATUS_OK
+                cell.fill = PatternFill(patternType='solid', fgColor='ffffff')
+            if status not in [STATUS_OK, 0, 0.0]:
                 cell.value = status
-                print(f"{cell} --- {status}")
+                print(f"---{emp_name}---{cell} --- {status}")
+            if status == 1.0:
+                cell.fill = PatternFill(patternType='solid', fgColor='FCBA03')
+            if comments:
+                comments.insert(0, f"TDT STAFF: ")
+                comment_tool = "\n".join(comments)
+                cell.comment = Comment(comment_tool, "Tool")
+            if status in [STATUS_OK, 0, 0.0]:
+                cell.comment = None
         sum_cell = out_ws.cell(row=row, column=38)
         sum_cell.value = f"=SUM(F{row}:AJ{row})"
 
