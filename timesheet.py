@@ -22,16 +22,16 @@ month_num = datetime.now().month
 year = datetime.now().year
 IN_FILE = (
     f"{year}-0{month_num - 1}-21.csv"
-    if month_num < 10
+    if month_num < 11
     else f"{year}-{month_num - 1}-21.csv"
 )
 export_day = IN_FILE[0:10]
 
 SAMPLE_FILE = "WorkingdayTemplate.xlsx"
 OUT_FILE = (
-    f"Workingday-{year}-0{month_num}-21.xlsx"
+    f"Workingday-{year}0{month_num}.xlsx"
     if month_num < 10
-    else f"{year}-{month_num}-21.xlsx"
+    else f"Workingday-{year}{month_num}.xlsx"
 )
 
 STATUS_OK = ""
@@ -47,12 +47,52 @@ IGNORE_EMP_ID = [
     "ECO",  # May Cham Cong ?? :D ??
 ]
 
+EMP_OM_ITA = [
+    "ECO0419",  # Nguyen Cong Thanh
+    "ECO0545",  # Tran Van Nghia
+    "ECO0474",  # Tran Dinh Do
+    "ECO0709",  # Lo Tien Thanh
+    "ECO0710",  # Can Hai Linh
+    "ECO0713",  # Pham The Trong
+    "ECO0716",  # Bui Doan Quang Huy
+    "ECO0717",  # Ngo Manh Quynh
+    "ECO0719",  # Tran Anh Vu
+    "ECO0591",  # Nguyen Ngoc Phuong Huy
+    "ECO0871",  # Nguyen Thanh Tung
+    "ECO0873",  # Nguyen Duc Manh
+    "ECO0877",  # Nguyn Phu Tien
+    "ECO0878",  # Nguyen The Nguyen
+    "ECO0881",  # Tran Dinh Duan
+    "ECO0977",  # Nguyen Chinh Hiep
+    "ECO0803",  # Nguyen Van Thang
+    "ECO0978",  # Nguyen Van Hieu
+    "ECO0980",  # Dinh Duy Khanh
+    "ECO0982",  # Phan Dai Nghia
+    "ECO0983",  # Tran Son Ha
+    "ECO0923",  # Nguyen Tien Nam
+    "ECO0879",  # Nghiem Van Thang
+]
+
+
+def round_up_to_base(value, base):
+    if value >= 1:
+        return 1
+    return value + (base - value) % base
+
 
 def time2str(value):
     if isinstance(value, str):
         return value
-    if isinstance(value, time):
+    if isinstance(value, (time, datetime)):
         return value.strftime("%d")
+    return ""
+
+
+def datetime2str(value):
+    if isinstance(value, str):
+        return value
+    if isinstance(value, (time, datetime)):
+        return value.strftime("%Y-%m-%d")
     return ""
 
 
@@ -69,24 +109,36 @@ def str2datetime(value):
 
 
 def get_late_time(time: float) -> float:
-    late_time: float
+    # late_time: float
+    # if time >= 8:
+    #     return 8
+    # if 0 < time <= 0.25:
+    #     late_time = 0.25
+    # elif 0.25 < time <= 0.5:
+    #     late_time = 0.5
+    # elif 0.5 < time <= 0.75:
+    #     late_time = 0.75
+    # else:
+    #     late_time = time
     if time >= 8:
         return 8
-    if time <= 0.25:
-        late_time = 0.25
-    elif 0.25 < time <= 0.5:
-        late_time = 0.5
-    elif 0.5 < time <= 0.75:
-        late_time = 0.75
-    else:
-        late_time = time
-    return late_time
+    return time
 
 
-# def append_off_day(list_days: set, list_wking_days: list):
-#     for wking_day in list_wking_days:
-#         list_template_working_days = wking_day, 8, 1, datetime.min, ""
-#
+def append_off_day(list_days: list, list_wking_days: list):
+    list_days_emp = [str(day_emp.get("day"))[0:10] for day_emp in list_days]
+    for wking in list_wking_days:
+        if datetime2str(wking) in list_days_emp:
+            continue
+        item = {
+            "day": wking,
+            "late_time": 1,
+            "checkout_time": "",
+            "time_str": "",
+        }
+        list_days.append(item)
+    return list_days
+
 
 datetimeFormat = "%Y-%m-%d %H:%M:%S"
 first_day = time2str(f"{export_day}")
@@ -122,7 +174,7 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         emp_name = row[1].upper()
         key = (emp_id, emp_name)
         if key not in data:
-            data[key] = set()
+            data[key] = []
         day = str2datetime(row[2])
         checkout_time = str2datetime(row[3]) if row[3] else NO_CHECKOUT
         right_time_str = f"{str(row[2])[0:10]} 08:30:00"
@@ -135,20 +187,38 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         if str2datetime(row[2]) > str2datetime(right_time_str):
             late_time_raw = str2datetime(row[2]) - str2datetime(right_time_str)
 
-        if checkout_time != NO_CHECKOUT and checkout_time < str2datetime(
-                right_co_time_str
-        ):
-            late_time_real += (right_co_time - checkout_time).seconds / 3600
         if late_time_raw:
             late_time_real = late_time_raw.seconds / 3600
             if late_time_raw.seconds > 16200:
                 late_time_raw = (
-                        str2datetime(row[2])
-                        - str2datetime(right_time_str)
-                        + timedelta(hours=4)
+                    str2datetime(row[2])
+                    - str2datetime(right_time_str)
+                    + timedelta(hours=4)
                 ).seconds
+
         late_time = get_late_time(late_time_real)
-        data[key].add((day, late_time, late_time_real, checkout_time, row[2][0:10]))
+
+        if checkout_time != NO_CHECKOUT and checkout_time < str2datetime(
+            right_co_time_str
+        ):
+            late_time += (right_co_time - checkout_time).seconds / 3600
+        if (row[3] and row[2]) and (
+            str2datetime(row[3]) - timedelta(minutes=1) == str2datetime(row[2])
+        ):
+            late_time = 8
+
+        data_key = {
+            "day": day,
+            "late_time": get_late_time(late_time),
+            "checkout_time": checkout_time,
+            "time_str": row[2][0:10],
+        }
+        data[key].append(data_key)
+
+    for emp_id, emp_name in data:
+        key = (emp_id, emp_name)
+        data[key] = append_off_day(list_days=data[key], list_wking_days=working_days)
+
 
 k = 0  # column
 start_day = datetime.strptime(first_day, "%Y-%m-%d")
@@ -169,8 +239,12 @@ while start_day <= end:
         out_ws.cell(row=row, column=2).value = emp_id
         out_ws.cell(row=row, column=3).value = emp_name
 
-        check_time = data[(emp_id, emp_name)]
-        for day, late_time, late_time_real, checkout_time, timestr in check_time:
+        check_time = sorted(data[(emp_id, emp_name)], key=lambda c: c["day"])
+        for woking in check_time:
+            day = woking.get("day")
+            late_time = woking.get("late_time")
+            checkout_time = woking.get("checkout_time")
+            time_str = woking.get("time_str")
             # Column start from 6 because there 2 hidden columns
             comments = []
             comment_tool = ""
@@ -184,30 +258,34 @@ while start_day <= end:
             if emp_id in IGNORE_EMP_ID:
                 status = STATUS_OK
                 comments = []
-            elif start_day.weekday() > 5:
+            elif start_day.weekday() > 5 and emp_id not in EMP_OM_ITA:
                 status = STATUS_OK
+            elif start_day == day:
+                cell.fill = PatternFill(patternType="solid", fgColor="FCBA03")
+                status = STATUS_DAY_OFF
+                comments.append("Không checkin")
             elif day.strftime("%m%d") != start_day.strftime("%m%d"):
                 comments = []
                 continue
-            elif late_time_real > 0 and late_time > 0:
+            elif late_time > 0 or emp_id in EMP_OM_ITA:
                 status = late_time * 0.125
                 comments.insert(0, f"Checkin lúc: {time}")
             elif checkout_time == NO_CHECKOUT:
-                status = 1.0
-                cell.fill = PatternFill(patternType='solid', fgColor='ffffff')
+                status = STATUS_DAY_OFF
+                cell.fill = PatternFill(patternType="solid", fgColor="ffffff")
             else:
                 status = STATUS_OK
-                cell.fill = PatternFill(patternType='solid', fgColor='ffffff')
-            if status not in [STATUS_OK, 0, 0.0]:
+                cell.fill = PatternFill(patternType="solid", fgColor="ffffff")
+            if status != STATUS_OK:
                 cell.value = status
                 print(f"---{emp_name}---{cell} --- {status}")
-            if status == 1.0:
-                cell.fill = PatternFill(patternType='solid', fgColor='FCBA03')
+            if status == STATUS_DAY_OFF:
+                cell.fill = PatternFill(patternType="solid", fgColor="FCBA03")
             if comments:
                 comments.insert(0, f"TDT STAFF: ")
                 comment_tool = "\n".join(comments)
                 cell.comment = Comment(comment_tool, "Tool")
-            if status in [STATUS_OK, 0, 0.0]:
+            if status == STATUS_OK:
                 cell.comment = None
         sum_cell = out_ws.cell(row=row, column=38)
         sum_cell.value = f"=SUM(F{row}:AJ{row})"
