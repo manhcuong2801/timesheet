@@ -13,13 +13,13 @@ month = datetime.now().strftime("%b")
 
 month_num = datetime.now().month
 year = datetime.now().year
-IN_FILE = (
+START_DAY = (
     f"{year}-0{month_num - 1}-21.csv"
     if month_num < 10
     else f"{year}-{month_num-1}-21.csv"
 )
-export_day = IN_FILE[0:10]
-# IN_FILE = '2022-02-21.csv'
+export_day = START_DAY[0:10]
+IN_FILE = "free_lancer.csv"
 # export_day = '2021-12-21'
 SAMPLE_FILE = "WorkingdayTemplate.xlsx"
 OUT_FILE = "Workingday.xlsx"
@@ -57,19 +57,12 @@ def str2datetime(value):
     return datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
 
 
-def get_late_time(time: float) -> float:
-    late_time: float
-    if time >= 8:
+def get_late_time(value: float, digits: int = 2) -> float:
+
+    if value >= 8:
         return 8
-    if time <= 0.25:
-        late_time = 0.25
-    elif 0.25 < time <= 0.5:
-        late_time = 0.5
-    elif 0.5 < time <= 0.75:
-        late_time = 0.75
-    else:
-        late_time = time
-    return late_time
+    number_digits = 10 ** digits
+    return round(value * number_digits) / number_digits
 
 
 datetimeFormat = "%Y-%m-%d %H:%M:%S"
@@ -114,18 +107,24 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         noon_time_str = f"{str(row[2])[0:10]} 13:00:00"
         right_co_time_str = f"{str(row[2])[0:10]} 17:30:00"
         right_co_time = str2datetime(right_co_time_str)
-        late_time_raw = dt.datetime.strptime(
-            str(row[2])[0:19], datetimeFormat
-        ) - dt.datetime.strptime(right_time_str, datetimeFormat)
-        if late_time_raw.seconds > 16200:
-            late_time_raw = (
-                dt.datetime.strptime(str(row[2])[0:19], datetimeFormat)
-                - dt.datetime.strptime(noon_time_str, datetimeFormat)
-                + timedelta(hours=4)
-            )
-        late_time_real = (late_time_raw.seconds / 3600) + late_time_raw.days * 3600
+        late_time_raw = 0
+        late_time_real = 0
+
+        if str2datetime(row[2]) > str2datetime(right_time_str):
+            late_time_raw = str2datetime(row[2]) - str2datetime(right_time_str)
+
+        if checkout_time < str2datetime(right_co_time_str):
+            late_time_real += (right_co_time - checkout_time).seconds / 3600
+        if late_time_raw:
+            late_time_real = late_time_raw.seconds / 3600
+            if late_time_raw.seconds > 16200:
+                late_time_raw = (
+                    str2datetime(row[2])
+                    - str2datetime(right_time_str)
+                    + timedelta(hours=4)
+                ).seconds
         late_time = get_late_time(late_time_real)
-        data[key].append((day, late_time, late_time_real, checkout_time, right_co_time))
+        data[key].append((day, late_time, late_time_real, checkout_time))
         print(data[key])
 
 
@@ -146,41 +145,43 @@ while start_day <= end:
 
     i = 0  # row
     for emp_id, emp_name in sorted(data):
+
+        status = STATUS_OK
         row = 8 + i
         out_ws.cell(row=row, column=1).value = i + 1
         out_ws.cell(row=row, column=2).value = emp_id
         out_ws.cell(row=row, column=3).value = emp_name
 
         check_time = data[(emp_id, emp_name)]
-        for day, late_time, late_time_real, checkout_time, right_co_time in check_time:
-            status = STATUS_OK
-            cell = out_ws.cell(row=row, column=column)
-            if checkout_time == NO_CHECKOUT:
-                cell.comment = Comment("Không checkout", "Tool")
-                continue
-            list_comment = []
+        for day, late_time, late_time_real, checkout_time in check_time:
             # Column start from 6 because there 2 hidden columns
+            comments = []
+            comment_tool = ""
+            cell = out_ws.cell(row=row, column=column)
             time = day.strftime("%H:%M:%S")
-            co_time = checkout_time.strftime("%H:%M:%S")
+
+            comments.append(f"Checkout lúc: {checkout_time}")
             if emp_id in IGNORE_EMP_ID:
                 status = STATUS_OK
             elif start_day.weekday() > 5:
                 status = STATUS_OK
+                comments = []
             elif day.strftime("%d") != start_day.strftime("%d"):
+                comments = []
                 continue
             elif late_time_real > 0 and late_time > 0:
                 status = late_time * 0.125
-                list_comment.append(f" đi muộn lúc: {time}")
-            if checkout_time < right_co_time:
-                list_comment.append(f"checkout lúc {co_time}")
+                comments.append(f"Checkin lúc: {time}")
             else:
                 status = 0
             if status != "":
                 cell.value = status
-                if list_comment:
-                    list_comment.insert(0, "TDT STAFF:")
-                    cell.comment = Comment("\n".join(list_comment), "Tool")
                 print(f"---{emp_name}---{cell} --- {status}")
+            if comments:
+                comments.insert(0, f"TDT STAFF: ")
+                comment_tool = "\n".join(comments)
+                cell.comment = Comment(comment_tool, "Tool")
+                comments = []
         sum_cell = out_ws.cell(row=row, column=38)
         sum_cell.value = f"=SUM(F{row}:AJ{row})"
 

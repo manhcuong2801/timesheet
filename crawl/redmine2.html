@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Users - CQ TDT Asia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="0a49cgizTRzuDCKz3oH2Rh2zq+6STuBz35oK7leYCNtzrxnQ39WiiEXDaSO59r+Qi+Qe43b+7eFjHL9vwq+jGg==" />
+<link rel='shortcut icon' href='/favicon.ico' />
+<link rel="stylesheet" media="all" href="/stylesheets/jquery/jquery-ui-1.11.0.css" />
+<link rel="stylesheet" media="all" href="/themes/circle/stylesheets/application.css" />
+<link rel="stylesheet" media="all" href="/stylesheets/responsive.css" />
+
+<script src="/javascripts/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js"></script>
+<script src="/javascripts/application.js"></script>
+<script src="/javascripts/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+<script src="/themes/circle/javascripts/theme.js"></script>
+<link rel="stylesheet" media="screen" href="/plugin_assets/redmine_agile/stylesheets/redmine_agile.css" />
+<!-- page specific tags -->
+</head>
+<body class="theme-Circle controller-users action-index">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+
+        <div class="flyout-menu__search">
+            <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">&#9906;</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search" />
+</form>        </div>
+
+        <div class="flyout-menu__avatar flyout-menu__avatar--no-avatar">
+            <a class="user active" href="/users/765">nghiatran</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="/users/765">nghiatran</a></div>
+    <ul><li><a class="home" href="/">Home</a></li><li><a class="my-page" href="/my/page">My page</a></li><li><a class="projects" href="/projects">Projects</a></li><li><a class="administration" href="/admin">Administration</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+
+        <label for='q'>
+          <a accesskey="4" href="/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" />
+</form>        <span class="jump-box-arrow"></span><select name="project_quick_jump_box" id="project_quick_jump_box" onchange="if (this.value != &#39;&#39;) { window.location = this.value; }"><option value=''>Jump to a project...</option><option value="" disabled="disabled">---</option><option value="/projects/afx?jump=users">10.AFX</option><option value="/projects/afx-core?jump=users">&nbsp;&nbsp;&#187; AFX Core</option><option value="/projects/hd?jump=users">&nbsp;&nbsp;&nbsp;&nbsp;&#187; DasH FX</option><option value="/projects/phillipmt5?jump=users">&nbsp;&nbsp;&nbsp;&nbsp;&#187; PhillipMT5</option><option value="/projects/armadillo-kf-project?jump=users">&nbsp;&nbsp;&#187; Armadillo &amp; KF Project</option><option value="/projects/sbi-mobile?jump=users">&nbsp;&nbsp;&#187; BigBoss MT5 Mobile</option><option value="/projects/kyc?jump=users">&nbsp;&nbsp;&#187; KYC</option><option value="/projects/afx-ose?jump=users">&nbsp;&nbsp;&#187; OSE</option><option value="/projects/afx-hp?jump=users">&nbsp;&nbsp;&#187; PhillipMT5 HP</option><option value="/projects/phk-hkipo?jump=users">PHK HKIPO</option><option value="/projects/chiaseyhoc-net?jump=users">chiaseyhoc.net</option><option value="/projects/phillip-jp-homepage?jump=users">Phillip JP Homepage</option><option value="/projects/phillipconnect-phase-2?jump=users">PhillipConnect Phase 2</option><option value="/projects/it-helpdesk?jump=users">IT Helpdesk</option><option value="/projects/ita?jump=users">ITA</option><option value="/projects/tdt-om?jump=users">TDT OM</option><option value="/projects/om-afx?jump=users">&nbsp;&nbsp;&#187; OM AFX</option></select>
+    </div>
+
+    <h1>CQ TDT Asia</h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li><a class="agile" href="/agile/board">Agile</a></li></ul>
+        <div class="tabs-buttons" style="display:none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+            <h3>Administration</h3>
+    <div id="admin-menu">
+  <ul><li><a class="projects" href="/admin/projects">Projects</a></li><li><a class="users selected" href="/users">Users</a></li><li><a class="groups" href="/groups">Groups</a></li><li><a class="roles" href="/roles">Roles and permissions</a></li><li><a class="trackers" href="/trackers">Trackers</a></li><li><a class="issue_statuses issue-statuses" href="/issue_statuses">Issue statuses</a></li><li><a class="workflows" href="/workflows/edit">Workflow</a></li><li><a class="custom_fields custom-fields" href="/custom_fields">Custom fields</a></li><li><a class="enumerations" href="/enumerations">Enumerations</a></li><li><a class="settings" href="/settings">Settings</a></li><li><a class="server_authentication ldap-authentication" href="/auth_sources">LDAP authentication</a></li><li><a class="icon agile" href="/settings/plugin/redmine_agile">Agile</a></li><li><a class="plugins" href="/admin/plugins">Plugins</a></li><li><a class="info" href="/admin/info">Information</a></li></ul>
+</div>
+
+
+
+    </div>
+
+    <div id="content">
+
+        <div class="contextual">
+<a class="icon icon-add" href="/users/new">New user</a>
+</div>
+
+<h2>Users</h2>
+
+<form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+<fieldset><legend>Filters</legend>
+<label for='status'>Status:</label>
+<select name="status" id="status" class="small" onchange="this.form.submit(); return false;"><option value="">all</option>
+<option selected="selected" value="1">active (330)</option>
+<option value="2">registered (29)</option>
+<option value="3">locked (508)</option></select>
+
+<label for='group_id'>Group:</label>
+<select name="group_id" id="group_id" onchange="this.form.submit(); return false;"><option></option><option value="527">AC</option>
+<option value="460">AFX_Developer</option>
+<option value="483">AFX_HP</option>
+<option value="461">AFX_Leader</option>
+<option value="468">AFX_Phillip</option>
+<option value="459">AFX_Tester</option>
+<option value="571">AVM_BA</option>
+<option value="570">AVM_DEV</option>
+<option value="509">BA</option>
+<option value="674">BA_Internship</option>
+<option value="883">BigBoss</option>
+<option value="744">Bit24</option>
+<option value="447">BO</option>
+<option value="35">BOD</option>
+<option value="841">CQJ_Armadillo</option>
+<option value="582">CQStation_Dev</option>
+<option value="581">CQStation_Leader</option>
+<option value="536">CQS_Odoo_Invoice</option>
+<option value="539">CQS_PhillipConnect</option>
+<option value="642">CQTH</option>
+<option value="14">Developer</option>
+<option value="1047">Ecomedic_QASite</option>
+<option value="1094">GA</option>
+<option value="450">Intership</option>
+<option value="284">ITA</option>
+<option value="1040">KF_PSJ</option>
+<option value="402">Langoo</option>
+<option value="341">Langoo Partner</option>
+<option value="702">LNV_Dev</option>
+<option value="33">Marketing</option>
+<option value="444">MTF</option>
+<option value="346">Nealle Partner</option>
+<option value="1014">OM AFX</option>
+<option value="1015">OM PSP</option>
+<option value="637">PEMB_DEV</option>
+<option value="636">PEMB_PSPL</option>
+<option value="840">PFPL_PriceFarm</option>
+<option value="925">PHK_AlgoTrading</option>
+<option value="998">PHK_HKIPO</option>
+<option value="688">PHK_HP</option>
+<option value="698">PHK_ME</option>
+<option value="782">Pi-X</option>
+<option value="283">PM</option>
+<option value="1059">PQA</option>
+<option value="603">PSPL</option>
+<option value="889">PSPL_DTL_Blockchain</option>
+<option value="520">PSP_Developer</option>
+<option value="519">PSP_Leader</option>
+<option value="523">PSP_Phillip</option>
+<option value="615">RD Team</option>
+<option value="34">Sales</option>
+<option value="65">TDT Eco</option>
+<option value="760">TDT OM</option>
+<option value="282">Tester</option></select>
+
+<label for='name'>User:</label>
+<input type="text" name="name" id="name" size="30" />
+<input type="submit" value="Apply" class="small" />
+<a class="icon icon-reload" href="/users">Clear</a>
+</fieldset>
+</form>&nbsp;
+
+<div class="autoscroll">
+<table class="list">
+  <thead><tr>
+  <th title="Sort by &quot;Login&quot;"><a class="sort asc" href="/users?page=2&amp;sort=login%3Adesc">Login</a></th>
+  <th title="Sort by &quot;First name&quot;"><a href="/users?page=2&amp;sort=firstname%2Clogin">First name</a></th>
+  <th title="Sort by &quot;Last name&quot;"><a href="/users?page=2&amp;sort=lastname%2Clogin">Last name</a></th>
+  <th>Email</th>
+  <th title="Sort by &quot;Administrator&quot;"><a href="/users?page=2&amp;sort=admin%3Adesc%2Clogin">Administrator</a></th>
+  <th title="Sort by &quot;Created&quot;"><a href="/users?page=2&amp;sort=created_on%3Adesc%2Clogin">Created</a></th>
+  <th title="Sort by &quot;Last connection&quot;"><a href="/users?page=2&amp;sort=last_login_on%3Adesc%2Clogin">Last connection</a></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/975/edit">linhnguyen4</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Linh</td>
+  <td class="email"><a href="mailto:linhnguyen4@tdt.asia">linhnguyen4@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:53 PM</td>
+  <td class="last_login_on">08/12/2022 02:07 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/975?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/975?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/959/edit">linhnguyen5</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Linh (Ryan)</td>
+  <td class="email"><a href="mailto:linhnguyen5@tdt.asia">linhnguyen5@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 10:25 AM</td>
+  <td class="last_login_on">08/08/2022 03:36 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/959?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/959?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/977/edit">linhvu</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Linh Boi</td>
+  <td class="email"><a href="mailto:linhvu@tdt.asia">linhvu@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:55 PM</td>
+  <td class="last_login_on">08/12/2022 09:32 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/977?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/977?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1022/edit">Liu.yungang</a></td>
+  <td class="firstname">AVM project</td>
+  <td class="lastname">Yungang</td>
+  <td class="email"><a href="mailto:Liu.yungang@cks.com.sg">Liu.yungang@cks.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/10/2022 11:53 AM</td>
+  <td class="last_login_on">05/10/2022 11:55 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1022?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1022?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/707/edit">lnv.duyen</a></td>
+  <td class="firstname">LNV</td>
+  <td class="lastname">Duyen</td>
+  <td class="email"><a href="mailto:myduyen.pham@learnova.vn">myduyen.pham@learnova.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/05/2021 08:57 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/707?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/707?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/705/edit">lnv.hang</a></td>
+  <td class="firstname">LNV</td>
+  <td class="lastname">Hang</td>
+  <td class="email"><a href="mailto:hang.le@mamnho.vn">hang.le@mamnho.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/05/2021 08:56 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/705?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/705?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/703/edit">lnv.hung</a></td>
+  <td class="firstname">LNV</td>
+  <td class="lastname">Hung</td>
+  <td class="email"><a href="mailto:hunglv.gp@gmail.com">hunglv.gp@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/05/2021 08:54 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/703?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/703?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/704/edit">lnv.huong</a></td>
+  <td class="firstname">LNV</td>
+  <td class="lastname">Huong</td>
+  <td class="email"><a href="mailto:maihuong.bui@learnova.vn">maihuong.bui@learnova.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/05/2021 08:55 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/704?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/704?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/706/edit">lnv.oanh</a></td>
+  <td class="firstname">LNV</td>
+  <td class="lastname">Oanh</td>
+  <td class="email"><a href="mailto:oanh.nguyenkieu@learnova.vn">oanh.nguyenkieu@learnova.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/05/2021 08:56 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/706?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/706?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/708/edit">lnv.thanh</a></td>
+  <td class="firstname">LNV</td>
+  <td class="lastname">Thanh</td>
+  <td class="email"><a href="mailto:thanh.vu@bohc.vn">thanh.vu@bohc.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/05/2021 09:00 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/708?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/708?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/846/edit">locnguyen</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Thanh Loc</td>
+  <td class="email"><a href="mailto:locnguyen@tdt.asia">locnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/22/2021 11:06 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/846?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/846?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1080/edit">longhoang</a></td>
+  <td class="firstname">DEV (freelancer)</td>
+  <td class="lastname">Long</td>
+  <td class="email"><a href="mailto:longhoang@tdt.asia">longhoang@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/01/2022 09:38 AM</td>
+  <td class="last_login_on">08/12/2022 08:48 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1080?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1080?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/428/edit">longld</a></td>
+  <td class="firstname">Long</td>
+  <td class="lastname">Le</td>
+  <td class="email"><a href="mailto:longld@medlink.vn">longld@medlink.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">10/09/2019 09:21 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/428?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/428?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/141/edit">longle</a></td>
+  <td class="firstname">Le Duy</td>
+  <td class="lastname">Long</td>
+  <td class="email"><a href="mailto:longnd@medlink.vn">longnd@medlink.vn</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/02/2018 10:47 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/141?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/141?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/631/edit">madhavi</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Madhavi</td>
+  <td class="email"><a href="mailto:Madhavi@phillip.com.sg">Madhavi@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/04/2021 01:57 PM</td>
+  <td class="last_login_on">12/29/2021 10:21 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/631?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/631?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/629/edit">maheswaran</a></td>
+  <td class="firstname">IT HOD</td>
+  <td class="lastname">Maheswaran</td>
+  <td class="email"><a href="mailto:maheswaran@phillip.com.sg">maheswaran@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/04/2021 01:56 PM</td>
+  <td class="last_login_on">05/06/2022 04:56 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/629?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/629?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1016/edit">maivanba0312</a></td>
+  <td class="firstname">Van</td>
+  <td class="lastname">Ba</td>
+  <td class="email"><a href="mailto:maivanba0312@gmail.com">maivanba0312@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/28/2022 02:59 PM</td>
+  <td class="last_login_on">06/17/2022 01:00 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1016?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1016?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/743/edit">makaramann</a></td>
+  <td class="firstname">Makara</td>
+  <td class="lastname">Mann</td>
+  <td class="email"><a href="mailto:makaramann@phillip.com.sg">makaramann@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/31/2021 12:09 PM</td>
+  <td class="last_login_on">07/21/2022 05:04 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/743?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/743?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/888/edit">makoto</a></td>
+  <td class="firstname">Bit24</td>
+  <td class="lastname">Makoto Kuribayashi</td>
+  <td class="email"><a href="mailto:m.pub.kuribayashi@gmail.com">m.pub.kuribayashi@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/13/2022 06:22 PM</td>
+  <td class="last_login_on">04/28/2022 11:52 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/888?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/888?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/891/edit">manhnguyen</a></td>
+  <td class="firstname">Designer</td>
+  <td class="lastname">Nguyen Duc Manh</td>
+  <td class="email"><a href="mailto:manhnguyen@tdt.asia">manhnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/24/2022 11:32 AM</td>
+  <td class="last_login_on">08/11/2022 10:19 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/891?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/891?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1078/edit">manhnguyen1</a></td>
+  <td class="firstname">OM</td>
+  <td class="lastname">Manh</td>
+  <td class="email"><a href="mailto:manhnguyen1@tdt.asia">manhnguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/29/2022 01:45 PM</td>
+  <td class="last_login_on">08/03/2022 10:16 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1078?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1078?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1068/edit">manhnguyen2</a></td>
+  <td class="firstname">BA Lead</td>
+  <td class="lastname">Manh</td>
+  <td class="email"><a href="mailto:manhnguyen2@tdt.asia">manhnguyen2@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/18/2022 06:14 AM</td>
+  <td class="last_login_on">07/18/2022 09:28 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1068?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1068?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/844/edit">manoj</a></td>
+  <td class="firstname">PFPL manoj</td>
+  <td class="lastname">A B S</td>
+  <td class="email"><a href="mailto:manoj@phillip.com.sg">manoj@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/18/2021 09:27 AM</td>
+  <td class="last_login_on">11/18/2021 09:32 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/844?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/844?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/471/edit">masatake.kudo</a></td>
+  <td class="firstname">Masatake</td>
+  <td class="lastname">Kudo</td>
+  <td class="email"><a href="mailto:masatake.kudo@phillip.co.jp">masatake.kudo@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">02/05/2020 01:44 PM</td>
+  <td class="last_login_on">08/10/2022 03:54 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/471?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/471?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/472/edit">masayoshi.nakao</a></td>
+  <td class="firstname">Masayoshi</td>
+  <td class="lastname">Nakao</td>
+  <td class="email"><a href="mailto:masayoshi.nakao@phillip.co.jp">masayoshi.nakao@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">02/05/2020 01:44 PM</td>
+  <td class="last_login_on">08/08/2022 01:53 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/472?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/472?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/887/edit">megumi</a></td>
+  <td class="firstname">Megumi</td>
+  <td class="lastname">Nishino</td>
+  <td class="email"><a href="mailto:megumi.nishino@phillip.co.jp">megumi.nishino@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/13/2022 11:15 AM</td>
+  <td class="last_login_on">06/03/2022 06:15 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/887?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/887?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1062/edit">minguyen</a></td>
+  <td class="firstname">Comtor</td>
+  <td class="lastname">Mi</td>
+  <td class="email"><a href="mailto:minguyen1@tdt.asia">minguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/11/2022 08:41 AM</td>
+  <td class="last_login_on">08/12/2022 10:40 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1062?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1062?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/653/edit">minhnghiem</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Van Minh(Andrew)</td>
+  <td class="email"><a href="mailto:minhnghiem@tdt.asia">minhnghiem@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/24/2021 08:43 AM</td>
+  <td class="last_login_on">08/10/2022 05:05 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/653?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/653?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/469/edit">motoki.ogata</a></td>
+  <td class="firstname">Motoki</td>
+  <td class="lastname">Ogata</td>
+  <td class="email"><a href="mailto:motoki.ogata@phillip.co.jp">motoki.ogata@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">02/05/2020 01:42 PM</td>
+  <td class="last_login_on">07/21/2022 01:36 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/469?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/469?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/62/edit">mynguyen</a></td>
+  <td class="firstname">Sales</td>
+  <td class="lastname">My</td>
+  <td class="email"><a href="mailto:mynguyen@tdt.asia">mynguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/01/2017 01:47 PM</td>
+  <td class="last_login_on">08/28/2017 01:50 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/62?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/62?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/627/edit">myott</a></td>
+  <td class="firstname">Tech Lead</td>
+  <td class="lastname">Myo Thu Ta</td>
+  <td class="email"><a href="mailto:myott@phillip.com.sg">myott@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/04/2021 01:55 PM</td>
+  <td class="last_login_on">01/12/2022 01:17 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/627?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/627?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/878/edit">nambui</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Huu Nam</td>
+  <td class="email"><a href="mailto:nambui@tdt.asia">nambui@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">12/20/2021 10:26 PM</td>
+  <td class="last_login_on">07/25/2022 09:32 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/878?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/878?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1072/edit">namnguyen2</a></td>
+  <td class="firstname">ITA</td>
+  <td class="lastname">Nam</td>
+  <td class="email"><a href="mailto:namnguyen2@tdt.asia">namnguyen2@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/25/2022 06:17 AM</td>
+  <td class="last_login_on">08/12/2022 05:45 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1072?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1072?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1053/edit">namphan</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Nam Phan</td>
+  <td class="email"><a href="mailto:namphan@tdt.asia">namphan@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/28/2022 09:38 AM</td>
+  <td class="last_login_on">08/13/2022 10:31 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1053?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1053?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/885/edit">ngaduong</a></td>
+  <td class="firstname">PC</td>
+  <td class="lastname">Nga Duong</td>
+  <td class="email"><a href="mailto:ngaduong@tdt.asia">ngaduong@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/10/2022 08:43 AM</td>
+  <td class="last_login_on">01/28/2022 11:02 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/885?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/885?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/820/edit">ngancao1</a></td>
+  <td class="firstname">BA </td>
+  <td class="lastname">Kim Ngan</td>
+  <td class="email"><a href="mailto:ngancao1@tdt.asia">ngancao1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/14/2021 11:21 PM</td>
+  <td class="last_login_on">11/15/2021 09:32 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/820?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/820?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/765/edit">nghiatran</a></td>
+  <td class="firstname">OM Lead</td>
+  <td class="lastname">Nghia</td>
+  <td class="email"><a href="mailto:nghiatran@tdt.asia">nghiatran@tdt.asia</a></td>
+  <td class="tick"><span class="icon-only icon-checked"></span></td>
+  <td class="created_on">09/20/2021 02:33 PM</td>
+  <td class="last_login_on">08/11/2022 03:07 PM</td>
+    <td class="buttons">
+
+
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1060/edit">ngockhuat1</a></td>
+  <td class="firstname">Ngoc</td>
+  <td class="lastname">Khuat</td>
+  <td class="email"><a href="mailto:ngockhuat1@tdt.asia">ngockhuat1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/11/2022 08:31 AM</td>
+  <td class="last_login_on">08/12/2022 03:58 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1060?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1060?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/994/edit">ngocnguyen1</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Minh Ngoc</td>
+  <td class="email"><a href="mailto:ngocnguyen1@tdt.asia">ngocnguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/11/2022 03:54 PM</td>
+  <td class="last_login_on">08/12/2022 06:32 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/994?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/994?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/771/edit">ngonam@sphoton.com</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">namngo</td>
+  <td class="email"><a href="mailto:ngonam@sphoton.com">ngonam@sphoton.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">09/27/2021 09:07 AM</td>
+  <td class="last_login_on">10/28/2021 02:01 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/771?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/771?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1076/edit">nguyennguyen1</a></td>
+  <td class="firstname">OM</td>
+  <td class="lastname">Nguyen</td>
+  <td class="email"><a href="mailto:nguyennguyen1@tdt.asia">nguyennguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/29/2022 01:42 PM</td>
+  <td class="last_login_on">08/12/2022 05:15 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1076?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1076?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/503/edit">nguyenphuongmai</a></td>
+  <td class="firstname">HRM</td>
+  <td class="lastname">Phuong Mai</td>
+  <td class="email"><a href="mailto:mainguyen@tdt.asia">mainguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/05/2020 02:48 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/503?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/503?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/453/edit">nguyenquanganh</a></td>
+  <td class="firstname">PL</td>
+  <td class="lastname">Quang Anh (Albert)</td>
+  <td class="email"><a href="mailto:anhnguyen3@tdt.asia">anhnguyen3@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">12/01/2019 08:59 PM</td>
+  <td class="last_login_on">02/14/2022 03:22 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/453?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/453?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/972/edit">nguyetdau</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Nguyet</td>
+  <td class="email"><a href="mailto:nguyetdau@tdt.asia">nguyetdau@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:43 PM</td>
+  <td class="last_login_on">08/12/2022 09:19 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/972?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/972?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1050/edit">ngws</a></td>
+  <td class="firstname">AVM project</td>
+  <td class="lastname">Wusheng</td>
+  <td class="email"><a href="mailto:ngws@cyberquote.com.sg">ngws@cyberquote.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/23/2022 06:43 PM</td>
+  <td class="last_login_on">07/22/2022 02:29 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1050?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1050?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1042/edit">nhitran</a></td>
+  <td class="firstname">GA </td>
+  <td class="lastname">Nhi</td>
+  <td class="email"><a href="mailto:nhitran@tdt.asia">nhitran@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/17/2022 01:41 PM</td>
+  <td class="last_login_on">06/20/2022 09:16 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1042?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1042?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/984/edit">nhungdo</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Nhung</td>
+  <td class="email"><a href="mailto:nhungdo@tdt.asia">nhungdo@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 02:19 PM</td>
+  <td class="last_login_on">08/12/2022 03:55 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/984?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/984?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1056/edit">nhungtruong</a></td>
+  <td class="firstname">PQA</td>
+  <td class="lastname">Nhung</td>
+  <td class="email"><a href="mailto:nhungtruong@tdt.asia">nhungtruong@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/04/2022 08:52 AM</td>
+  <td class="last_login_on">07/04/2022 09:29 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1056?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1056?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/915/edit">nhuto</a></td>
+  <td class="firstname">PC</td>
+  <td class="lastname">Nhu (Ruby)</td>
+  <td class="email"><a href="mailto:nhuto@tdt.asia">nhuto@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/11/2022 08:54 AM</td>
+  <td class="last_login_on">08/10/2022 12:01 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/915?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/915?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/30/edit">nhutran</a></td>
+  <td class="firstname">COO</td>
+  <td class="lastname">Nhu</td>
+  <td class="email"><a href="mailto:nhutran@ecomedic.vn">nhutran@ecomedic.vn</a></td>
+  <td class="tick"><span class="icon-only icon-checked"></span></td>
+  <td class="created_on">04/05/2017 11:48 AM</td>
+  <td class="last_login_on">08/28/2017 01:51 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/30?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/30?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/610/edit">nilarat</a></td>
+  <td class="firstname">PSPL DEV</td>
+  <td class="lastname">Nilar Aye Thaung</td>
+  <td class="email"><a href="mailto:nilarat@phillip.com.sg">nilarat@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/20/2021 10:54 AM</td>
+  <td class="last_login_on">08/08/2022 04:38 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/610?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/610?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/505/edit">om-tdt</a></td>
+  <td class="firstname">OM</td>
+  <td class="lastname">TDT</td>
+  <td class="email"><a href="mailto:itaomtdt@gmail.com">itaomtdt@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/26/2020 02:51 PM</td>
+  <td class="last_login_on">08/20/2021 05:08 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/505?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/505?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/622/edit">pfpl_support</a></td>
+  <td class="firstname">PFPL Infra Team</td>
+  <td class="lastname">Alpha or Ajith or Christian</td>
+  <td class="email"><a href="mailto:pfpl_support@phillip.com.sg">pfpl_support@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/29/2021 06:56 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/622?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/622?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/952/edit">phongdinh</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Phong</td>
+  <td class="email"><a href="mailto:phongdinh@tdt.asia">phongdinh@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 10:01 AM</td>
+  <td class="last_login_on">08/09/2022 11:45 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/952?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/952?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/645/edit">phongnguyen</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Nguyen Van Phong</td>
+  <td class="email"><a href="mailto:phongnguyen@tdt.asia">phongnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/18/2021 11:08 AM</td>
+  <td class="last_login_on">07/26/2021 08:43 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/645?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/645?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/937/edit">phongnguyen2</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Phong (Gnohb)</td>
+  <td class="email"><a href="mailto:phongnguyen2@tdt.asia">phongnguyen2@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/28/2022 01:42 PM</td>
+  <td class="last_login_on">03/28/2022 02:19 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/937?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/937?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/938/edit">phuocnguyen</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Phuoc</td>
+  <td class="email"><a href="mailto:phuocnguyen@tdt.asia">phuocnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/29/2022 03:34 PM</td>
+  <td class="last_login_on">04/07/2022 10:03 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/938?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/938?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/928/edit">phuongnguyen</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Bich Phuong</td>
+  <td class="email"><a href="mailto:phuongnguyen@tdt.asia">phuongnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/27/2022 11:36 AM</td>
+  <td class="last_login_on">08/13/2022 09:41 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/928?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/928?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/725/edit">phuongpham</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Nam Phuong(Jack)</td>
+  <td class="email"><a href="mailto:phuongpham@tdt.asia">phuongpham@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/30/2021 05:49 PM</td>
+  <td class="last_login_on">08/09/2021 10:01 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/725?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/725?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/981/edit">phuongtran</a></td>
+  <td class="firstname">BA Phuong</td>
+  <td class="lastname">Tran</td>
+  <td class="email"><a href="mailto:phuongtran@tdt.asia">phuongtran@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 02:17 PM</td>
+  <td class="last_login_on">08/12/2022 10:06 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/981?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/981?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/613/edit">ppthin</a></td>
+  <td class="firstname">PSPL DEV</td>
+  <td class="lastname">Phyu Phyu Thin</td>
+  <td class="email"><a href="mailto:ppthin@phillip.com.sg">ppthin@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/20/2021 10:56 AM</td>
+  <td class="last_login_on">05/10/2022 03:41 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/613?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/613?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/788/edit">prabakaran</a></td>
+  <td class="firstname">Poems Dev</td>
+  <td class="lastname">Prabakaran</td>
+  <td class="email"><a href="mailto:prabakaran@phillip.com.sg">prabakaran@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">10/20/2021 04:20 PM</td>
+  <td class="last_login_on">10/20/2021 05:44 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/788?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/788?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/575/edit">priyanka</a></td>
+  <td class="firstname">CQS</td>
+  <td class="lastname">Priyanka</td>
+  <td class="email"><a href="mailto:priyanka@phillip.com.sg">priyanka@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/26/2021 10:33 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/575?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/575?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/694/edit">pshk.altonlau</a></td>
+  <td class="firstname">PSHK Director Alton</td>
+  <td class="lastname">Lau</td>
+  <td class="email"><a href="mailto:altonlau@phillip.com.hk">altonlau@phillip.com.hk</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/25/2021 12:04 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/694?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/694?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/697/edit">pshk.dennisleung</a></td>
+  <td class="firstname">PSHK Senior Manager Dennis</td>
+  <td class="lastname">Leung</td>
+  <td class="email"><a href="mailto:dennisleung@phillip.com.hk">dennisleung@phillip.com.hk</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/25/2021 12:12 PM</td>
+  <td class="last_login_on">06/28/2022 03:40 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/697?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/697?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/693/edit">pshk.jackylau</a></td>
+  <td class="firstname">PSHK IT Manager Jacky</td>
+  <td class="lastname">Lau</td>
+  <td class="email"><a href="mailto:jackylau@phillip.com.hk">jackylau@phillip.com.hk</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/25/2021 11:58 AM</td>
+  <td class="last_login_on">11/18/2021 08:18 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/693?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/693?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/722/edit">pshk.kokit</a></td>
+  <td class="firstname">PSHK SE Ko </td>
+  <td class="lastname">Kit</td>
+  <td class="email"><a href="mailto:kitko@phillip.com.hk">kitko@phillip.com.hk</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/16/2021 03:36 PM</td>
+  <td class="last_login_on">08/16/2021 08:57 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/722?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/722?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/696/edit">pshk.limwahsai</a></td>
+  <td class="firstname">PSHK CEO Wah Sai</td>
+  <td class="lastname">Lim </td>
+  <td class="email"><a href="mailto:wahsai@phillip.com.hk">wahsai@phillip.com.hk</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/25/2021 12:09 PM</td>
+  <td class="last_login_on">11/05/2021 08:29 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/696?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/696?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/695/edit">pshk.wilsonlam</a></td>
+  <td class="firstname">PSHK IS Director Wilson</td>
+  <td class="lastname">Lam</td>
+  <td class="email"><a href="mailto:wilsonlam@phillip.com.hk">wilsonlam@phillip.com.hk</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/25/2021 12:08 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/695?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/695?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/789/edit">pspl.arnu</a></td>
+  <td class="firstname">PSPL</td>
+  <td class="lastname">Arnulfo</td>
+  <td class="email"><a href="mailto:arnu@phillip.com.sg">arnu@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">10/22/2021 10:07 AM</td>
+  <td class="last_login_on">10/27/2021 03:17 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/789?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/789?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/683/edit">pspl.athenamiaoyy</a></td>
+  <td class="firstname">PSPL Tester Athena</td>
+  <td class="lastname">Miao Yu Yan</td>
+  <td class="email"><a href="mailto:athenamiaoyy@phillip.com.sg">athenamiaoyy@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:32 PM</td>
+  <td class="last_login_on">07/08/2021 08:40 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/683?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/683?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/684/edit">pspl.brycelamhy</a></td>
+  <td class="firstname">PSPL Tester Bryce</td>
+  <td class="lastname">Lam Hong Yu</td>
+  <td class="email"><a href="mailto:brycelamhy@phillip.com.sg">brycelamhy@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:33 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/684?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/684?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/679/edit">pspl.chuamh</a></td>
+  <td class="firstname">Minghan</td>
+  <td class="lastname">Chua</td>
+  <td class="email"><a href="mailto:chuamh@phillip.com.sg">chuamh@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:28 PM</td>
+  <td class="last_login_on">06/25/2021 10:12 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/679?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/679?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/680/edit">pspl.evelynsohyl</a></td>
+  <td class="firstname">PSPL Tester Evelyn</td>
+  <td class="lastname">Soh Yi Lin</td>
+  <td class="email"><a href="mailto:evelynsohyl@phillip.com.sg">evelynsohyl@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:29 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/680?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/680?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/682/edit">pspl.fanyl</a></td>
+  <td class="firstname">PSPL Tester Yanlin</td>
+  <td class="lastname">Fan</td>
+  <td class="email"><a href="mailto:fanyl@phillip.com.sg">fanyl@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:31 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/682?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/682?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/638/edit">pspl.huankiat</a></td>
+  <td class="firstname">Huan Kiat</td>
+  <td class="lastname">Seh</td>
+  <td class="email"><a href="mailto:sehhk@phillip.com.sg">sehhk@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/04/2021 06:09 PM</td>
+  <td class="last_login_on">05/05/2021 07:47 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/638?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/638?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/681/edit">pspl.jasonfusc</a></td>
+  <td class="firstname">PSPL Tester Jason</td>
+  <td class="lastname">Fu Shi Cong</td>
+  <td class="email"><a href="mailto:jasonfusc@phillip.com.sg">jasonfusc@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:30 PM</td>
+  <td class="last_login_on">07/28/2022 09:08 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/681?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/681?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/678/edit">pspl.lowwa</a></td>
+  <td class="firstname">PSPL UX Designer Wei An</td>
+  <td class="lastname">Low</td>
+  <td class="email"><a href="mailto:lowwa@phillip.com.sg">lowwa@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:27 PM</td>
+  <td class="last_login_on">08/05/2022 02:42 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/678?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/678?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/677/edit">pspl.ngohv</a></td>
+  <td class="firstname">PSPL Tech Lead Matthews</td>
+  <td class="lastname">Ngo</td>
+  <td class="email"><a href="mailto:ngohv@phillip.com.sg">ngohv@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 10:50 AM</td>
+  <td class="last_login_on">06/18/2021 03:50 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/677?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/677?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/685/edit">pspl.ongyh</a></td>
+  <td class="firstname">PSPL Tester Ong</td>
+  <td class="lastname">Yao Heng</td>
+  <td class="email"><a href="mailto:ongyh@phillip.com.sg">ongyh@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:34 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/685?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/685?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/602/edit">pspl.rajesh</a></td>
+  <td class="firstname">PSPL Rajesh</td>
+  <td class="lastname">Kumar</td>
+  <td class="email"><a href="mailto:rajeshkumar@phillip.com.sg">rajeshkumar@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/09/2021 07:40 AM</td>
+  <td class="last_login_on">08/05/2022 05:31 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/602?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/602?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/647/edit">pspl.sathya</a></td>
+  <td class="firstname">PSPL UX Designer Sathya</td>
+  <td class="lastname">Narayanan</td>
+  <td class="email"><a href="mailto:sathyanarayanan@phillip.com.sg">sathyanarayanan@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/18/2021 05:26 PM</td>
+  <td class="last_login_on">06/16/2021 04:09 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/647?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/647?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/686/edit">pspl.stephaniedaihy</a></td>
+  <td class="firstname">PSPL Project Manager Stephanie</td>
+  <td class="lastname">Dai Huiyi</td>
+  <td class="email"><a href="mailto:stephaniedaihy@phillip.com.sg">stephaniedaihy@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:35 PM</td>
+  <td class="last_login_on">03/03/2022 06:54 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/686?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/686?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/687/edit">pspl.sunwx</a></td>
+  <td class="firstname">PSPL Tester Sun</td>
+  <td class="lastname">Wanxin</td>
+  <td class="email"><a href="mailto:sunwx@phillip.com.sg">sunwx@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/18/2021 02:36 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/687?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/687?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/604/edit">pspl.wongsw</a></td>
+  <td class="firstname">PSPL</td>
+  <td class="lastname">Shun Wai</td>
+  <td class="email"><a href="mailto:wongsw@phillip.com.sg">wongsw@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/09/2021 07:42 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/604?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/604?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/648/edit">pspl.yunus</a></td>
+  <td class="firstname">PSPL UX Designer Yunus</td>
+  <td class="lastname">Mohamed</td>
+  <td class="email"><a href="mailto:mohamedyunus@phillip.com.sg">mohamedyunus@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/18/2021 05:28 PM</td>
+  <td class="last_login_on">03/07/2022 01:47 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/648?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/648?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/949/edit">quangdao</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Quang</td>
+  <td class="email"><a href="mailto:quangdao@tdt.asia">quangdao@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 08:56 AM</td>
+  <td class="last_login_on">08/12/2022 11:08 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/949?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/949?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1045/edit">quanlhjos</a></td>
+  <td class="firstname">DEV (freelancer)</td>
+  <td class="lastname">Quan</td>
+  <td class="email"><a href="mailto:quanlhjos@gmail.com">quanlhjos@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/17/2022 02:17 PM</td>
+  <td class="last_login_on">08/12/2022 04:24 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1045?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1045?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/845/edit">quannguyen1</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Minh Quan</td>
+  <td class="email"><a href="mailto:quannguyen1@tdt.asia">quannguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/22/2021 11:05 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/845?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/845?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/927/edit">quynhngo</a></td>
+  <td class="firstname">ITA</td>
+  <td class="lastname">Quynh</td>
+  <td class="email"><a href="mailto:quynhngo@tdt.asia">quynhngo@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/25/2022 10:36 AM</td>
+  <td class="last_login_on">08/10/2022 05:06 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/927?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/927?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/920/edit">rachmadherdiyanto</a></td>
+  <td class="firstname">CQ Ind</td>
+  <td class="lastname">Rachmard</td>
+  <td class="email"><a href="mailto:rachmadherdiyanto@cyberquote.co.id">rachmadherdiyanto@cyberquote.co.id</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/17/2022 08:46 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/920?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/920?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/630/edit">robertchan</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Robert</td>
+  <td class="email"><a href="mailto:robertchan@phillip.com.sg">robertchan@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/04/2021 01:57 PM</td>
+  <td class="last_login_on">08/12/2021 01:24 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/630?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/630?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/612/edit">romero</a></td>
+  <td class="firstname">PSPL DEV</td>
+  <td class="lastname">Romero P Rubio</td>
+  <td class="email"><a href="mailto:romero@phillip.com.sg">romero@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/20/2021 10:56 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/612?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/612?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/632/edit">ronnie</a></td>
+  <td class="firstname">Product Mgr</td>
+  <td class="lastname">Ronnie Ravelo</td>
+  <td class="email"><a href="mailto:ronnie@phillip.com.sg">ronnie@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/04/2021 01:58 PM</td>
+  <td class="last_login_on">11/12/2021 01:19 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/632?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/632?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/907/edit">shantitj</a></td>
+  <td class="firstname">POEM Square</td>
+  <td class="lastname">ShanT</td>
+  <td class="email"><a href="mailto:shantitj@phillip.com.sg">shantitj@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/01/2022 12:01 PM</td>
+  <td class="last_login_on">04/25/2022 06:30 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/907?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/907?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/992/edit">shigeru.ohya</a></td>
+  <td class="firstname">POEM Square</td>
+  <td class="lastname">Ohya Shigeru</td>
+  <td class="email"><a href="mailto:shigeru.ohya@phillip.co.jp">shigeru.ohya@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/08/2022 04:30 PM</td>
+  <td class="last_login_on">04/13/2022 03:02 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/992?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/992?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/842/edit">shimoyama</a></td>
+  <td class="firstname">Pi-X PM</td>
+  <td class="lastname">shimoyama</td>
+  <td class="email"><a href="mailto:shimoyama@phillip.com.sg">shimoyama@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/17/2021 03:58 PM</td>
+  <td class="last_login_on">05/09/2022 09:38 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/842?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/842?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/991/edit">shun.nagahora</a></td>
+  <td class="firstname">Nagahora</td>
+  <td class="lastname">Shun</td>
+  <td class="email"><a href="mailto:shun.nagahora@phillip.co.jp">shun.nagahora@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/05/2022 01:47 PM</td>
+  <td class="last_login_on">08/06/2022 01:40 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/991?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/991?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/747/edit">sonnguyen1</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Tuan Son</td>
+  <td class="email"><a href="mailto:sonnguyen1@tdt.asia">sonnguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">09/05/2021 02:46 PM</td>
+  <td class="last_login_on">09/06/2021 01:07 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/747?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/747?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/919/edit">stefanus.gilang</a></td>
+  <td class="firstname">CQ Ind</td>
+  <td class="lastname">Stefanus</td>
+  <td class="email"><a href="mailto:stefanus.gilang@cyberquote.co.id">stefanus.gilang@cyberquote.co.id</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/17/2022 08:45 AM</td>
+  <td class="last_login_on">03/30/2022 09:49 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/919?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/919?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/767/edit">swaminathan</a></td>
+  <td class="firstname">Swaminathan</td>
+  <td class="lastname">V</td>
+  <td class="email"><a href="mailto:swaminathan@phillip.com.sg">swaminathan@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">09/23/2021 08:31 AM</td>
+  <td class="last_login_on">03/03/2022 03:09 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/767?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/767?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/924/edit">syunsei.lee</a></td>
+  <td class="firstname">Syunsei</td>
+  <td class="lastname">Lee</td>
+  <td class="email"><a href="mailto:syunsei.lee@phillip.co.jp">syunsei.lee@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/22/2022 03:23 PM</td>
+  <td class="last_login_on">08/02/2022 03:32 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/924?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/924?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1027/edit">tainguyen</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Tai</td>
+  <td class="email"><a href="mailto:tainguyen@tdt.asia">tainguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/17/2022 09:56 AM</td>
+  <td class="last_login_on">08/13/2022 10:38 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1027?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1027?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/982/edit">taivu</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Tai</td>
+  <td class="email"><a href="mailto:taivu@tdt.asia">taivu@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 02:18 PM</td>
+  <td class="last_login_on">08/12/2022 10:17 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/982?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/982?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/599/edit">takafumi.shiratori</a></td>
+  <td class="firstname">Takafumi</td>
+  <td class="lastname">Shiratori</td>
+  <td class="email"><a href="mailto:takafumi.shiratori@phillip.co.jp">takafumi.shiratori@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/05/2021 02:38 PM</td>
+  <td class="last_login_on">06/21/2022 07:31 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/599?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/599?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/882/edit">Takayuki</a></td>
+  <td class="firstname">Takayuki</td>
+  <td class="lastname">Miyoshi</td>
+  <td class="email"><a href="mailto:takayuki.miyoshi@phillip.co.jp">takayuki.miyoshi@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/04/2022 07:03 PM</td>
+  <td class="last_login_on">07/19/2022 06:54 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/882?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/882?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1023/edit">tando</a></td>
+  <td class="firstname">QA</td>
+  <td class="lastname">Tan</td>
+  <td class="email"><a href="mailto:tando@tdt.asia">tando@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/11/2022 04:51 PM</td>
+  <td class="last_login_on">08/09/2022 12:39 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1023?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1023?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/901/edit">tannguyen</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Tan</td>
+  <td class="email"><a href="mailto:tannguyen@tdt.asia">tannguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">02/21/2022 08:27 AM</td>
+  <td class="last_login_on">07/21/2022 08:28 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/901?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/901?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1039/edit">tanvi</a></td>
+  <td class="firstname">Tan</td>
+  <td class="lastname">Vi</td>
+  <td class="email"><a href="mailto:tanvi@tdt.asia">tanvi@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/14/2022 10:40 AM</td>
+  <td class="last_login_on">08/09/2022 04:26 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1039?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1039?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/909/edit">tanwk</a></td>
+  <td class="firstname">POEM Square</td>
+  <td class="lastname">tanwk</td>
+  <td class="email"><a href="mailto:tanwk@phillip.com.sg">tanwk@phillip.com.sg</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/02/2022 11:30 AM</td>
+  <td class="last_login_on">06/21/2022 06:11 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/909?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/909?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1083/edit">thangnghiem</a></td>
+  <td class="firstname">OM</td>
+  <td class="lastname">Thang</td>
+  <td class="email"><a href="mailto:thangnghiem@tdt.asia">thangnghiem@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/02/2022 10:49 AM</td>
+  <td class="last_login_on">08/02/2022 06:01 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1083?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1083?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/967/edit">thangnguyen</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Thang</td>
+  <td class="email"><a href="mailto:thangnguyen@tdt.asia">thangnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:11 PM</td>
+  <td class="last_login_on">08/12/2022 09:03 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/967?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/967?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/849/edit">thangnguyen2</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Duc Thang</td>
+  <td class="email"><a href="mailto:thangnguyen2@tdt.asia">thangnguyen2@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/22/2021 11:09 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/849?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/849?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/943/edit">thangnguyen3</a></td>
+  <td class="firstname">ITA</td>
+  <td class="lastname">Thang</td>
+  <td class="email"><a href="mailto:thangnguyen3@tdt.asia">thangnguyen3@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/03/2022 02:58 PM</td>
+  <td class="last_login_on">04/04/2022 05:44 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/943?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/943?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/951/edit">thangnguyen4</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Thang (Zoam)</td>
+  <td class="email"><a href="mailto:thangnguyen4@tdt.asia">thangnguyen4@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 10:00 AM</td>
+  <td class="last_login_on">08/12/2022 03:41 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/951?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/951?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/848/edit">thanhdoan</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Huu Thanh</td>
+  <td class="email"><a href="mailto:thanhdoan@tdt.asia">thanhdoan@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/22/2021 11:08 AM</td>
+  <td class="last_login_on">11/22/2021 04:09 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/848?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/848?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/966/edit">thanhlo</a></td>
+  <td class="firstname">OM</td>
+  <td class="lastname">Thanh</td>
+  <td class="email"><a href="mailto:thanhlo@tdt.asia">thanhlo@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:06 PM</td>
+  <td class="last_login_on">05/10/2022 03:08 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/966?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/966?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/585/edit">thanhnguyen2</a></td>
+  <td class="firstname">PL</td>
+  <td class="lastname">Thanh</td>
+  <td class="email"><a href="mailto:thanhnguyen1@tdt.asia">thanhnguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">03/15/2021 09:22 AM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/585?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/585?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/573/edit">thanhnguyenita</a></td>
+  <td class="firstname">ITA</td>
+  <td class="lastname">Thanh</td>
+  <td class="email"><a href="mailto:thanhnguyen@tdt.asia">thanhnguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/21/2021 09:03 AM</td>
+  <td class="last_login_on">05/04/2022 08:56 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/573?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/573?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1007/edit">thaonguyen3</a></td>
+  <td class="firstname">BDE</td>
+  <td class="lastname">Thanh Thao</td>
+  <td class="email"><a href="mailto:thaonguyen3@tdt.asia">thaonguyen3@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/25/2022 09:37 AM</td>
+  <td class="last_login_on">08/12/2022 10:12 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1007?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1007?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/689/edit">thaopham</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Phuong Thao</td>
+  <td class="email"><a href="mailto:thaopham@tdt.asia">thaopham@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/21/2021 08:47 AM</td>
+  <td class="last_login_on">06/21/2021 09:21 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/689?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/689?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/861/edit">thebui</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Bui Quang The</td>
+  <td class="email"><a href="mailto:thebui@tdt.asia">thebui@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">12/01/2021 09:49 AM</td>
+  <td class="last_login_on">05/25/2022 09:27 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/861?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/861?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1029/edit">thinhvo</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Thinh Vo</td>
+  <td class="email"><a href="mailto:thinhvo@tdt.asia">thinhvo@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">05/22/2022 09:36 PM</td>
+  <td class="last_login_on">08/12/2022 05:10 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1029?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1029?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/946/edit">thompham</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Thom</td>
+  <td class="email"><a href="mailto:thompham@tdt.asia">thompham@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/03/2022 03:16 PM</td>
+  <td class="last_login_on">04/14/2022 06:44 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/946?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/946?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1046/edit">thuhuyen.phongthi</a></td>
+  <td class="firstname">DEV (freelancer)</td>
+  <td class="lastname">Huyen</td>
+  <td class="email"><a href="mailto:thuhuyen.phongthi@gmail.com">thuhuyen.phongthi@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/17/2022 02:18 PM</td>
+  <td class="last_login_on">08/12/2022 04:15 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1046?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1046?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/805/edit">thuluong</a></td>
+  <td class="firstname">BA </td>
+  <td class="lastname">Anh Thu</td>
+  <td class="email"><a href="mailto:thuluong@tdt.asia">thuluong@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/14/2021 11:02 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/805?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/805?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/796/edit">thuluu</a></td>
+  <td class="firstname">BDE</td>
+  <td class="lastname">Huyen Thu (Julia)</td>
+  <td class="email"><a href="mailto:thuluu@tdt.asia">thuluu@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/14/2021 08:16 PM</td>
+  <td class="last_login_on">11/17/2021 08:38 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/796?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/796?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1003/edit">thunguyen</a></td>
+  <td class="firstname">AC</td>
+  <td class="lastname">Minh Thu</td>
+  <td class="email"><a href="mailto:thunguyen@tdt.asia">thunguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/19/2022 09:15 AM</td>
+  <td class="last_login_on">08/12/2022 09:28 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1003?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1003?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1041/edit">thuongle</a></td>
+  <td class="firstname">HRBP</td>
+  <td class="lastname">Thuong</td>
+  <td class="email"><a href="mailto:thuongle@tdt.asia">thuongle@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/16/2022 09:40 AM</td>
+  <td class="last_login_on">07/22/2022 04:42 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1041?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1041?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1073/edit">thuydoan</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Thuy</td>
+  <td class="email"><a href="mailto:thuydoan@tdt.asia">thuydoan@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/25/2022 06:42 AM</td>
+  <td class="last_login_on">08/12/2022 10:02 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1073?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1073?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1086/edit">thuynguyen2</a></td>
+  <td class="firstname">Thuy</td>
+  <td class="lastname">Nguyen</td>
+  <td class="email"><a href="mailto:thuynguyen2@tdt.asia">thuynguyen2@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/03/2022 05:37 PM</td>
+  <td class="last_login_on">08/12/2022 10:49 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1086?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1086?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/860/edit">tiennguyen1</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Minh Tien (Tiago)</td>
+  <td class="email"><a href="mailto:tiennguyen@tdt.asia">tiennguyen@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">12/01/2021 09:47 AM</td>
+  <td class="last_login_on">01/11/2022 05:30 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/860?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/860?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1082/edit">tiennguyen2</a></td>
+  <td class="firstname">OM</td>
+  <td class="lastname">Tien</td>
+  <td class="email"><a href="mailto:tiennguyen1@tdt.asia">tiennguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/02/2022 10:48 AM</td>
+  <td class="last_login_on">08/12/2022 07:53 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1082?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1082?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/178/edit">tienphan</a></td>
+  <td class="firstname">Dev</td>
+  <td class="lastname">Ted C++</td>
+  <td class="email"><a href="mailto:tienphan@tdt.asia">tienphan@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/26/2018 09:50 AM</td>
+  <td class="last_login_on">08/10/2022 04:55 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/178?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/178?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1069/edit">timothy.swj</a></td>
+  <td class="firstname">TOLNFT</td>
+  <td class="lastname">Timothy Sim</td>
+  <td class="email"><a href="mailto:timothy.swj@gmail.com">timothy.swj@gmail.com</a></td>
+  <td class="tick"></td>
+  <td class="created_on">07/20/2022 01:24 PM</td>
+  <td class="last_login_on">07/20/2022 02:34 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1069?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1069?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/836/edit">toanbui</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Bui Toan</td>
+  <td class="email"><a href="mailto:toanbui@tdt.asia">toanbui@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/14/2021 11:30 PM</td>
+  <td class="last_login_on">07/30/2022 11:43 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/836?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/836?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/898/edit">toannguyen1</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Nguyen Thanh Toan</td>
+  <td class="email"><a href="mailto:toannguyen1@tdt.asia">toannguyen1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">02/15/2022 08:41 AM</td>
+  <td class="last_login_on">08/12/2022 02:01 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/898?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/898?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/524/edit">tomoyuki.makino</a></td>
+  <td class="firstname">Phillip</td>
+  <td class="lastname">Tomoyuki</td>
+  <td class="email"><a href="mailto:tomoyuki.makino@phillip.co.jp">tomoyuki.makino@phillip.co.jp</a></td>
+  <td class="tick"></td>
+  <td class="created_on">09/16/2020 08:11 AM</td>
+  <td class="last_login_on">07/11/2022 01:15 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/524?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/524?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1052/edit">trale</a></td>
+  <td class="firstname">BDE</td>
+  <td class="lastname">Tra</td>
+  <td class="email"><a href="mailto:trale@tdt.asia">trale@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/27/2022 04:49 AM</td>
+  <td class="last_login_on">08/12/2022 05:11 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1052?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1052?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/819/edit">trangchu</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Trang Chu</td>
+  <td class="email"><a href="mailto:trangchu@tdt.asia">trangchu@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">11/14/2021 11:21 PM</td>
+  <td class="last_login_on">11/15/2021 09:50 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/819?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/819?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/667/edit">trangdo1</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">TrangDo</td>
+  <td class="email"><a href="mailto:trangdo@tdt.asia">trangdo@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">06/10/2021 09:09 AM</td>
+  <td class="last_login_on">08/06/2021 12:47 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/667?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/667?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/978/edit">trangdoan</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Ha Trang</td>
+  <td class="email"><a href="mailto:trangdoan@tdt.asia">trangdoan@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:55 PM</td>
+  <td class="last_login_on">04/21/2022 06:00 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/978?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/978?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/1002/edit">trangho</a></td>
+  <td class="firstname">QA</td>
+  <td class="lastname">Trang PEPE</td>
+  <td class="email"><a href="mailto:trangho@tdt.asia">trangho@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/19/2022 08:51 AM</td>
+  <td class="last_login_on">08/12/2022 09:50 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1002?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1002?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/963/edit">trangnguyen3</a></td>
+  <td class="firstname">BA</td>
+  <td class="lastname">Thu Trang</td>
+  <td class="email"><a href="mailto:trangnguyen3@tdt.asia">trangnguyen3@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 10:27 AM</td>
+  <td class="last_login_on">08/12/2022 05:11 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/963?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/963?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/969/edit">trangtran1</a></td>
+  <td class="firstname">BA </td>
+  <td class="lastname">Trang Tran</td>
+  <td class="email"><a href="mailto:trangtran1@tdt.asia">trangtran1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">04/04/2022 01:22 PM</td>
+  <td class="last_login_on">08/12/2022 09:49 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/969?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/969?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/1088/edit">trangtran2</a></td>
+  <td class="firstname">BO</td>
+  <td class="lastname">Trang</td>
+  <td class="email"><a href="mailto:trangtran2@tdt.asia">trangtran2@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/04/2022 01:09 PM</td>
+  <td class="last_login_on"></td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/1088?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/1088?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/513/edit">trangtruong</a></td>
+  <td class="firstname">PM</td>
+  <td class="lastname">Trang</td>
+  <td class="email"><a href="mailto:trangtruong1@tdt.asia">trangtruong1@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">08/20/2020 09:02 AM</td>
+  <td class="last_login_on">05/17/2021 12:39 PM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/513?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/513?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/886/edit">trieule</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Le The Trieu</td>
+  <td class="email"><a href="mailto:trieule@tdt.asia">trieule@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">01/13/2022 09:17 AM</td>
+  <td class="last_login_on">06/20/2022 11:10 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/886?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/886?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active odd">
+  <td class="username"><a href="/users/858/edit">tripham</a></td>
+  <td class="firstname">DEV</td>
+  <td class="lastname">Tri Pham (Tom)</td>
+  <td class="email"><a href="mailto:tripham@tdt.asia">tripham@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">12/01/2021 09:44 AM</td>
+  <td class="last_login_on">12/01/2021 10:52 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/858?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/858?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  <tr class="user active even">
+  <td class="username"><a href="/users/249/edit">tronghoang</a></td>
+  <td class="firstname">PM</td>
+  <td class="lastname">Trong(William)</td>
+  <td class="email"><a href="mailto:tronghoang@tdt.asia">tronghoang@tdt.asia</a></td>
+  <td class="tick"></td>
+  <td class="created_on">10/08/2018 10:11 AM</td>
+  <td class="last_login_on">10/10/2018 09:51 AM</td>
+    <td class="buttons">
+      <a class="icon icon-lock" rel="nofollow" data-method="put" href="/users/249?page=2&amp;user%5Bstatus%5D=3">Lock</a>
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="/users/249?back_url=%2Fusers%3Fpage%3D2">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<span class="pagination"><ul class="pages"><li class="previous page"><a accesskey="p" href="/users?page=1">« Previous</a></li><li class="page"><a href="/users?page=1">1</a></li><li class="current"><span>2</span></li><li class="page"><a href="/users?page=3">3</a></li><li class="next page"><a accesskey="n" href="/users?page=3">Next »</a></li></ul><span><span class="items">(151-300/330)</span> <span class="per-page">Per page: <a href="/users?per_page=50">50</a>, <a href="/users?per_page=100">100</a>, <span class="selected">150</span></span></span></span>
+
+
+
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> &copy; 2006-2016 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
