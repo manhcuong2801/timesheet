@@ -51,8 +51,16 @@ IGNORE_EMP_ID = [
 def time2str(value):
     if isinstance(value, str):
         return value
-    if isinstance(value, time):
+    if isinstance(value, (time, datetime)):
         return value.strftime("%d")
+    return ""
+
+
+def datetime2str(value):
+    if isinstance(value, str):
+        return value
+    if isinstance(value, (time, datetime)):
+        return value.strftime("%Y-%m-%d")
     return ""
 
 
@@ -83,10 +91,21 @@ def get_late_time(time: float) -> float:
     return late_time
 
 
-# def append_off_day(list_days: set, list_wking_days: list):
-#     for wking_day in list_wking_days:
-#         list_template_working_days = wking_day, 8, 1, datetime.min, ""
-#
+def append_off_day(list_days: list, list_wking_days: list):
+    list_days_emp = [str(day_emp.get("day"))[0:10] for day_emp in list_days]
+    for wking in list_wking_days:
+        if datetime2str(wking) in list_days_emp:
+            continue
+        item = {
+            "day": wking,
+            "late_time": 1,
+            "late_time_real": 1,
+            "checkout_time": "",
+            "time_str": "",
+        }
+        list_days.append(item)
+    return list_days
+
 
 datetimeFormat = "%Y-%m-%d %H:%M:%S"
 first_day = time2str(f"{export_day}")
@@ -122,7 +141,7 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         emp_name = row[1].upper()
         key = (emp_id, emp_name)
         if key not in data:
-            data[key] = set()
+            data[key] = []
         day = str2datetime(row[2])
         checkout_time = str2datetime(row[3]) if row[3] else NO_CHECKOUT
         right_time_str = f"{str(row[2])[0:10]} 08:30:00"
@@ -135,20 +154,35 @@ with open(IN_FILE, mode="r", encoding="utf-8") as file:
         if str2datetime(row[2]) > str2datetime(right_time_str):
             late_time_raw = str2datetime(row[2]) - str2datetime(right_time_str)
 
-        if checkout_time != NO_CHECKOUT and checkout_time < str2datetime(
-                right_co_time_str
-        ):
-            late_time_real += (right_co_time - checkout_time).seconds / 3600
         if late_time_raw:
             late_time_real = late_time_raw.seconds / 3600
             if late_time_raw.seconds > 16200:
                 late_time_raw = (
-                        str2datetime(row[2])
-                        - str2datetime(right_time_str)
-                        + timedelta(hours=4)
+                    str2datetime(row[2])
+                    - str2datetime(right_time_str)
+                    + timedelta(hours=4)
                 ).seconds
+
         late_time = get_late_time(late_time_real)
-        data[key].add((day, late_time, late_time_real, checkout_time, row[2][0:10]))
+
+        if checkout_time != NO_CHECKOUT and checkout_time < str2datetime(
+                right_co_time_str
+        ):
+            late_time += (right_co_time - checkout_time).seconds / 3600
+
+        data_key = {
+            "day": day,
+            "late_time": late_time,
+            "late_time_real": late_time_real,
+            "checkout_time": checkout_time,
+            "time_str": row[2][0:10],
+        }
+        data[key].append(data_key)
+
+    for emp_id, emp_name in data:
+        key = (emp_id, emp_name)
+        data[key] = append_off_day(list_days=data[key], list_wking_days=working_days)
+
 
 k = 0  # column
 start_day = datetime.strptime(first_day, "%Y-%m-%d")
@@ -169,8 +203,13 @@ while start_day <= end:
         out_ws.cell(row=row, column=2).value = emp_id
         out_ws.cell(row=row, column=3).value = emp_name
 
-        check_time = data[(emp_id, emp_name)]
-        for day, late_time, late_time_real, checkout_time, timestr in check_time:
+        check_time = sorted(data[(emp_id, emp_name)], key=lambda c: c["day"])
+        for woking in check_time:
+            day = woking.get("day")
+            late_time = woking.get("late_time")
+            late_time_real = woking.get("late_time_real")
+            checkout_time = woking.get("checkout_time")
+            time_str = woking.get("time_str")
             # Column start from 6 because there 2 hidden columns
             comments = []
             comment_tool = ""
@@ -186,6 +225,10 @@ while start_day <= end:
                 comments = []
             elif start_day.weekday() > 5:
                 status = STATUS_OK
+            elif start_day == day:
+                cell.fill = PatternFill(patternType="solid", fgColor="FCBA03")
+                status = STATUS_DAY_OFF
+                comments.append("Không checkin")
             elif day.strftime("%m%d") != start_day.strftime("%m%d"):
                 comments = []
                 continue
@@ -193,21 +236,21 @@ while start_day <= end:
                 status = late_time * 0.125
                 comments.insert(0, f"Checkin lúc: {time}")
             elif checkout_time == NO_CHECKOUT:
-                status = 1.0
-                cell.fill = PatternFill(patternType='solid', fgColor='ffffff')
+                status = STATUS_DAY_OFF
+                cell.fill = PatternFill(patternType="solid", fgColor="ffffff")
             else:
                 status = STATUS_OK
-                cell.fill = PatternFill(patternType='solid', fgColor='ffffff')
-            if status not in [STATUS_OK, 0, 0.0]:
+                cell.fill = PatternFill(patternType="solid", fgColor="ffffff")
+            if status != STATUS_OK:
                 cell.value = status
                 print(f"---{emp_name}---{cell} --- {status}")
-            if status == 1.0:
-                cell.fill = PatternFill(patternType='solid', fgColor='FCBA03')
+            if status == STATUS_DAY_OFF:
+                cell.fill = PatternFill(patternType="solid", fgColor="FCBA03")
             if comments:
                 comments.insert(0, f"TDT STAFF: ")
                 comment_tool = "\n".join(comments)
                 cell.comment = Comment(comment_tool, "Tool")
-            if status in [STATUS_OK, 0, 0.0]:
+            if status == STATUS_OK:
                 cell.comment = None
         sum_cell = out_ws.cell(row=row, column=38)
         sum_cell.value = f"=SUM(F{row}:AJ{row})"
